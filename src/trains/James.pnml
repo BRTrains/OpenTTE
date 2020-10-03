@@ -1,0 +1,110 @@
+spriteset(spriteset_James_Purchase, "gfx/Edward_James.png") {
+	tmpl_purchase(89, 0)
+}
+
+spriteset(spriteset_James, "gfx/Edward_James.png") {
+	tmpl_James(0, 48)
+}
+spriteset(spriteset_James_Tender, "gfx/Edward_James.png") {
+	tmpl_tender_16(0, 67)
+}
+
+switch(FEAT_TRAINS,SELF, sw_James_Tender,cargo_subtype){
+    0:	spriteset_James_Tender;
+}
+
+switch(FEAT_TRAINS,SELF, sw_James,cargo_subtype){
+    0:	spriteset_James;
+
+}
+
+switch (FEAT_TRAINS, SELF, switch_articulated_James, extra_callback_info1) {
+	1: return item_James_Tender;
+    return CB_RESULT_NO_MORE_ARTICULATED_PARTS; //stop adding vehicle parts
+}
+
+switch(FEAT_TRAINS,SELF,sw_James_cargo_subtype_text,cargo_subtype){
+    0: return string(STR_James_Name);
+       return CB_RESULT_NO_TEXT;
+}
+
+item (FEAT_TRAINS, item_James, 501) {
+	property {
+		name: 							string(STR_James_Name);
+		climates_available: 			ALL_CLIMATES;
+		introduction_date:				date(1925,1,1);
+		model_life:						100;
+		retire_early:					1;
+		vehicle_life:					100;
+		reliability_decay:				7;
+		refittable_cargo_classes:		0;
+		cargo_allow_refit:				[GOOD];
+		loading_speed:					3;
+		cost_factor:					27;
+		running_cost_factor:			32;
+		sprite_id:						SPRITE_ID_NEW_TRAIN;
+		speed:							108 mph;
+		misc_flags:						TRAIN_FLAG_NO_BREAKDOWN_SMOKE;
+		refit_cost:						0;
+		track_type:						RAIL;
+		ai_special_flag:				AI_FLAG_CARGO;
+		power:							1000 hp;
+		running_cost_base:				RUNNING_COST_STEAM;
+		dual_headed:					0;
+		default_cargo_type:				GOOD;
+		cargo_capacity:					1;
+		weight:							70 ton;
+		engine_class:					ENGINE_CLASS_STEAM;
+		tractive_effort_coefficient:	0.3;
+		air_drag_coefficient:			0.1;
+		length:							5;
+		effect_spawn_model_and_powered:	EFFECT_SPAWN_MODEL_STEAM;
+		extra_weight_per_wagon:			0;
+		bitmask_vehicle_info:			0;
+	}
+	graphics {
+	additional_text:					return(string(str_purchase_type_steam,string(str_James_Desc),string(str_James_usage)));
+	can_attach_wagon:					CB_RESULT_ATTACH_ALLOW;
+	cargo_capacity:						return 0;
+	cargo_subtype_text:					sw_James_cargo_subtype_text;
+	articulated_part:        			switch_articulated_James;
+	default: 							sw_James;
+	purchase:							spriteset_James_Purchase;
+	colour_mapping: 					return PALETTE_CC_FIRST;
+	create_effect:						steam_create_visual_effect;
+	sound_effect:						sw_steam_sound;
+}
+}
+
+item (FEAT_TRAINS, item_James_Tender, 502) {
+	property {
+		name: 							string(STR_James_Name);
+		climates_available: 			NO_CLIMATE;
+		refittable_cargo_classes:		0;
+		cargo_allow_refit:				[GOOD];
+		loading_speed:					3;
+		cost_factor:					0;
+		running_cost_factor:			0;
+		sprite_id:						SPRITE_ID_NEW_TRAIN;
+		refit_cost:						0;
+		track_type:						RAIL;
+		power:							0;
+		running_cost_base:				RUNNING_COST_NONE;
+		dual_headed:					0;
+		default_cargo_type:				GOOD;
+		cargo_capacity:					1;
+		weight:							0;
+		tractive_effort_coefficient:	0;
+		air_drag_coefficient:			0;
+		length:							3;
+		effect_spawn_model_and_powered:	EFFECT_SPAWN_MODEL_NONE;
+		extra_weight_per_wagon:			0;
+		bitmask_vehicle_info:			0;
+	}
+	graphics {
+	can_attach_wagon:					CB_RESULT_ATTACH_ALLOW;
+	cargo_capacity:						return 0;
+	default: 							sw_James_Tender;
+	colour_mapping: 					return PALETTE_CC_FIRST;
+}
+}

@@ -16,7 +16,31 @@ template tmpl_loco_29(x,y) {
     [x+135,  y,     18,     15,     -10,      -8] // NW
 }
 
-// Also Gordon and Henry
+template tmpl_James(x,y) {
+    //leftx, topy, width, height, offsetx, offsety
+    [x,     y,      8,      18,     -2,      -14] // N 
+    [x+9,   y,      14,     13,     -8,      -7] // NE
+    [x+24,  y,      21,     11,     4,      -5] // E
+    [x+46,  y,      15,     13,     4,      -1] // SE
+    [x+62,  y,      8,      16,     -3,      -2] // S
+    [x+71,  y,      15,     13,     -15,      -3] // SW
+    [x+87,  y,      21,     11,     -4,      -8] // W
+    [x+109,  y,     14,     13,     -6,      -7] // NW
+}
+
+template tmpl_Edward(x,y) {
+    //leftx, topy, width, height, offsetx, offsety
+    [x,     y,      8,      19,     -2,     -14] // N 
+    [x+9,   y,      16,     14,     -8,     -8] // NE
+    [x+26,  y,      25,     11,     -8,      -8] // E
+    [x+52,  y,      16,     14,     5,      0] // SE
+    [x+69,  y,      8,      18,     -3,     -2] // S
+    [x+78,  y,      16,     14,     -16,    -3] // SW
+    [x+95,  y,      25,     11,     -4,     -8] // W
+    [x+121,  y,     16,     14,     -8,     -8] // NW
+}
+
+// Tenders for Gordon, Henry, James, Edward
 template tmpl_tender_16(x, y) {
     //leftx, topy, width, height, offsetx, offsety
     [x,     y,      8,      14,     -2,      -10] // N 

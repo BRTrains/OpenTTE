@@ -1,6 +1,8 @@
 sort(FEAT_TRAINS, [
+ item_Edward,
  item_Henry,
  item_Gordon,
+ item_James,
  item_Toby,
  item_ExpressCoach
  ]);
