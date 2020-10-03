@@ -41,6 +41,7 @@ This will also perform the --compile function, and will not start the game if an
 
 #### Artists
 
+- DanMacK
 - Audigex
 
 ### Contributing
