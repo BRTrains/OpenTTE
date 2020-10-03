@@ -1,0 +1,22 @@
+// GRF definition block
+grf {
+	grfid: "otte"; // OpenTTE, a Thomas The Tank Engine train set for OpenTTD
+	name: string(STR_GRF_NAME);
+	desc: string(STR_GRF_DESC);
+	version: 0;
+	min_compatible_version: 0; //bump up this number to version when breaking compatibility
+	param 0 {
+		param_sounds{
+			name: string(STR_PARAM_NAME_SOUNDS);
+			desc: string(STR_PARAM_DESC_SOUNDS);
+			min_value: 0;
+			max_value: 1;
+			def_value: 1;
+			names: {
+				0: string(STR_PARAM_SOUNDS_OFF);
+				1: string(STR_PARAM_SOUNDS_ON);
+			};
+		}
+	}
+}
+disable_item(FEAT_TRAINS);

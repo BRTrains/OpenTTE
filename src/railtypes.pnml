@@ -1,0 +1,4 @@
+// Railtype definitions
+railtypetable {	
+	"RAIL", "ELRL",
+}
