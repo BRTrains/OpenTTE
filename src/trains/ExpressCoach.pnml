@@ -14,16 +14,16 @@ spriteset(spriteset_ExpressCoach_Second, "gfx/Express_Coaches.png") {
 	tmpl_coach_33(0, 63)
 }
 
-switch(FEAT_TRAINS,SELF, sw_ExpressCoach,cargo_subtype){
-    0:	spriteset_ExpressCoach_RWS;
-    1:	spriteset_ExpressCoach_First;
-    2:	spriteset_ExpressCoach_Second;
+switch(FEAT_TRAINS,SELF, sw_ExpressCoach,cargo_subtype){    
+    0:	spriteset_ExpressCoach_First;
+    1:	spriteset_ExpressCoach_Second;
+	2:	spriteset_ExpressCoach_RWS;
 }
 	
-switch(FEAT_TRAINS,SELF,sw_ExpressCoach_cargo_subtype_text,cargo_subtype){
-    0: return string(STR_Livery_ExpressCoach_RWS);
-    1: return string(STR_Livery_ExpressCoach_First);
-    2: return string(STR_Livery_ExpressCoach_Second);
+switch(FEAT_TRAINS,SELF,sw_ExpressCoach_cargo_subtype_text,cargo_subtype){    
+    0: return string(STR_Livery_ExpressCoach_First);
+    1: return string(STR_Livery_ExpressCoach_Second);
+	2: return string(STR_Livery_ExpressCoach_RWS);
        return CB_RESULT_NO_TEXT;
 }
 

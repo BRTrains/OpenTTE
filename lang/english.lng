@@ -81,6 +81,7 @@ STR_PipEmma_Usage               :High Speed Passenger Express
 STR_AnnieClarabel_Name          :Annie and Clarabel (Coaches)
 STR_AnnieClarabel_Desc          :Passenger Coaches
 STR_AnnieClarabel_Usage         :Local/Branchline passenger services
+STR_AnnieClarabel_liveries       :Liveries: Annie, Clarabel
 
 STR_Henrietta_Name              :Henrietta (Coach)
 STR_Henrietta_Desc              :A passenger coach, and Toby's good friend
@@ -111,3 +112,5 @@ STR_Harold_Usage                :Just flying around
 STR_Livery_ExpressCoach_RWS     :RWS
 STR_Livery_ExpressCoach_First   :First Class
 STR_Livery_ExpressCoach_Second  :Second Class
+STR_Livery_Annie                :Annie
+STR_Livery_Clarabel             :Clarabel
