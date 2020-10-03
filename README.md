@@ -33,7 +33,7 @@ python build.py --run OpenTTE
 This will also perform the --compile function, and will not start the game if an error is thrown during the compilation process.
 
 
-### Credits (in no particular order)
+### Credits
 
 #### Developers
 
@@ -41,8 +41,8 @@ This will also perform the --compile function, and will not start the game if an
 
 #### Artists
 
-- DanMacK
-- Audigex
+- DanMacK (Original art)
+- Audigex (Modifications for release)
 
 ### Contributing
 Fork the project, make your changes, submit a pull request. 
