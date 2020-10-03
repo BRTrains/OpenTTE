@@ -1,0 +1,113 @@
+﻿﻿##grflangid 0x01
+
+# GRF name and description
+STR_GRF_NAME							:OpenTTE - A Thomas the Tank Engine Set
+STR_GRF_DESC							:A Thomas The Tank Engine trainset for OpenTTD.{}{}{WHITE}{COPYRIGHT}2020 {LTBLUE}Audigex{WHITE}{}{WHITE}License: {LTBLUE}GPL v2
+
+# Parameters
+STR_PARAM_NAME_SOUNDS           :Use sounds
+STR_PARAM_DESC_SOUNDS			:Enable or Disable Running Sounds for OpenTTE
+STR_PARAM_SOUNDS_OFF			:Disabled
+STR_PARAM_SOUNDS_ON				:Enabled
+
+# Messages
+STR_CANNOT_ATTACH						:Cannot attach a different class of train
+
+# Vehicle types
+str_purchase_type_diesel		:{RED}Diesel locomotive
+str_purchase_type_steam			:{GREEN}Steam Locomotive
+str_purchase_type_dmu			:{RED}Diesel Multiple Unit
+str_purchase_type_demu			:{RED}Diesel{BLACK}-{BLUE}Electric {PURPLE}Multiple Unit
+str_purchase_type_emu			:{BLUE}Electric Multiple Unit
+str_purchase_type_electric		:{BLUE}Electric Locomotive
+
+# Vehicle names etc
+STR_Thomas_Name                 :Thomas The Tank Engine (#1)
+STR_Thomas_Desc                 :An 0-6-0 Tank Engine, and a really useful engine
+STR_Thomas_Usage                :Branch Lines
+
+STR_Edward_Name                 :Edward the Blue Engine (#2)
+STR_Edward_Desc                 :A 4-4-0 Locomotive
+STR_Edward_Usage                :Local Passenger Services
+
+STR_Henry_Name                  :Henry the Green Engine (#3)
+STR_Henry_Desc                  :4-6-0 Large Locomotive
+STR_Henry_Usage                 :Long Distance Passenger and Heavy Freight
+
+STR_Gordon_Name                 :Gordon the Big Engine (#4)
+STR_Gordon_Desc                 :4-6-2 Express Locomotive
+STR_Gordon_Usage                :Express Passenger Services
+
+STR_James_Name                  :James the Red Engine (#5)
+STR_James_Desc                  :A 2-6-0 Locomotive
+STR_James_Usage                 :Mixed Freight and Passengers
+
+STR_Percy_Name                  :Percy the Small Engine (#6)
+STR_Percy_Desc                  :A small 0-4-0 Tank Engine
+STR_Percy_Usage                 :Shunting and short distance Freight
+
+STR_Toby_Name                   :Toby the Tram (#7)
+STR_Toby_Desc                   :An 0-6-0 Tram
+STR_Toby_USage                  :Branch Lines, particularly in towns
+
+STR_Duck_Name                   :Duck the Great Western Engine (#8)
+STR_Duck_Desc                   :A large 0-6-0 tank engine
+STR_Duck_Usage                  :Branch Lines, particularly Freight
+
+STR_DonaldDouglas_Name          :Donald and Douglas (#9 & #10)
+STR_DonaldDouglas_Desc          :Light 0-6-0 Locomotives
+STR_DonaldDouglas_Usage         :Freight (and snowplowing)
+
+STR_Oliver_Name                 :Oliver the Great Western Engine (#11)
+STR_Oliver_Desc                 :An 0-6-0 Tank Engine
+STR_Oliver_Usage                :Branch Lines (Passenger)
+
+STR_Daisy_Name                  :Daisy the Diesel Railcar (D1)
+STR_Daisy_Desc                  :A Diesel Railcar (BR 101 Protype)
+STR_Daisy_Usage                 :Short Distance Passenger
+
+STR_BoCo_Name                   :The Big Friendly Diesel (D2)
+STR_BoCo_Desc                   :A Diesel-Electric Locomotive (BR 28)
+STR_BoCo_Usage                  :Local Passenger or Freight
+
+STR_Bear_Name                   :Bear (D3)
+STR_Bear_Desc                   :A Diesel-Hydrualic Locomotive (BR 35)
+STR_Bear_Usage                  :Local Distance Freight or Passenger
+
+STR_PipEmma_Name                :Pip And Emma
+STR_PipEmma_Desc                :Diesl-Electric High Speed Locomotives (BR43/IC125)
+STR_PipEmma_Usage               :High Speed Passenger Express
+
+STR_AnnieClarabel_Name          :Annie and Clarabel (Coaches)
+STR_AnnieClarabel_Desc          :Passenger Coaches
+STR_AnnieClarabel_Usage         :Local/Branchline passenger services
+
+STR_Henrietta_Name              :Henrietta (Coach)
+STR_Henrietta_Desc              :A passenger coach, and Toby's good friend
+STR_Henrietta_Usage             :Coupled to Toby, for branch line services
+
+STR_Elsie_Name                  :Elsie (Brake Van)
+STR_Elsie_Desc                  :A brake van, and Toby's friend
+STR_Elsie_Usage                 : Coupled to Toby and Henrietta
+
+STR_ExpressCoach_Name           :Express Coach
+STR_ExpressCoach_Desc           :Fast coaches for the express
+STR_ExpressCoach_Usage          :Express Passenger
+STR_ExpressCoach_liveries       :Liveries: RWS, First Class, Second Class
+
+STR_Bertie_Name                 :Bertie The Bus
+STR_Bertie_Desc                 :A single deck bus (AEC Regal)
+STR_Bertie_Usage                :Bringing passengers to the train station
+
+STR_Bulgie_Name                 :Bulgie The Bus
+STR_Bulgie_Desc                 :A Double Decker Bus (AEC Bridgemaster)
+STR_Bulgie_Usage                :Short Distance Passenger Services
+
+STR_Harold_Name                 :Harold the Helicopter
+STR_Harold_Desc                 :A Helicopter
+STR_Harold_Usage                :Just flying around
+
+
+STR_Livery_ExpressCoach_RWS     :RWS
+STR_Livery_ExpressCoach_First   :First Class
+STR_Livery_ExpressCoach_Second  :Second Class

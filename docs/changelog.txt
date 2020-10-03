@@ -1,0 +1,8 @@
+OpenTTE Changelog
+============================
+
+v0.0.1 (2020/10/02)
+======
+
+Started the set 
+- Based off MUTS build scripts

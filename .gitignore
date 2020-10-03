@@ -1,0 +1,18 @@
+# Build files
+build/
+build.json
+conf.ps1
+*.grf
+*.tar
+
+# NML cache
+.nmlcache/
+*.cache
+*.cacheindex
+
+# Test files
+*test*
+
+# No clue
+master-gfx/
+list_ids.py
