@@ -1,0 +1,7 @@
+Locomotives use the (TrainNumber)00-(TrainNumber)99 pattern. Eg James (#5) uses ID's 501 and 502 for the engine and tender. Thomas uses 101. Toby uses 701-703 for Toby/Henrietta/Elsie
+
+Rolling stock/wagons etc are in the 0-100 range
+
+1. Express Coach
+2. Annie & Clarabel
+3. Not yet used
