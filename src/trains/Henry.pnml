@@ -28,7 +28,7 @@ switch(FEAT_TRAINS,SELF,sw_Henry_cargo_subtype_text,cargo_subtype){
        return CB_RESULT_NO_TEXT;
 }
 
-item (FEAT_TRAINS, item_Henry, 301) {
+item (FEAT_TRAINS, item_Henry, 60031) {
 	property {
 		name: 							string(STR_Henry_Name);
 		climates_available: 			ALL_CLIMATES;
@@ -76,7 +76,7 @@ item (FEAT_TRAINS, item_Henry, 301) {
 }
 }
 
-item (FEAT_TRAINS, item_Henry_Tender, 302) {
+item (FEAT_TRAINS, item_Henry_Tender, 60032) {
 	property {
 		name: 							string(STR_Henry_Name);
 		climates_available: 			NO_CLIMATE;

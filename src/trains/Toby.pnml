@@ -38,7 +38,7 @@ switch(FEAT_TRAINS,SELF,sw_Toby_cargo_subtype_text,cargo_subtype){
        return CB_RESULT_NO_TEXT;
 }
 
-item (FEAT_TRAINS, item_Toby, 701) {
+item (FEAT_TRAINS, item_Toby, 60071) {
 	property {
 		name: 							string(STR_Toby_Name);
 		climates_available: 			ALL_CLIMATES;
@@ -86,7 +86,7 @@ item (FEAT_TRAINS, item_Toby, 701) {
 }
 }
 
-item (FEAT_TRAINS, item_Henrietta, 702) {
+item (FEAT_TRAINS, item_Henrietta, 60072) {
 	property {
 		name: 							string(STR_Henrietta_Name);
 		climates_available: 			NO_CLIMATE;
@@ -119,7 +119,7 @@ item (FEAT_TRAINS, item_Henrietta, 702) {
 }
 }
 
-item (FEAT_TRAINS, item_Elsie, 703) {
+item (FEAT_TRAINS, item_Elsie, 60073) {
 	property {
 		name: 							string(STR_Elsie_Name);
 		climates_available: 			NO_CLIMATE;

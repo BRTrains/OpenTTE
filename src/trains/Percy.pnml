@@ -19,7 +19,7 @@ switch(FEAT_TRAINS,SELF,sw_Percy_cargo_subtype_text,cargo_subtype){
        return CB_RESULT_NO_TEXT;
 }
 
-item (FEAT_TRAINS, item_Percy, 601) {
+item (FEAT_TRAINS, item_Percy, 60061) {
 	property {
 		name: 							string(STR_Percy_Name);
 		climates_available: 			ALL_CLIMATES;
