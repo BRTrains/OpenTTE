@@ -38,7 +38,7 @@ switch(FEAT_TRAINS,SELF,sw_Toby_cargo_subtype_text,cargo_subtype){
        return CB_RESULT_NO_TEXT;
 }
 
-item (FEAT_TRAINS, item_Toby, 60071) {
+item (FEAT_TRAINS, item_Toby, 10071) {
 	property {
 		name: 							string(STR_Toby_Name);
 		climates_available: 			ALL_CLIMATES;
@@ -61,8 +61,7 @@ item (FEAT_TRAINS, item_Toby, 60071) {
 		power:							200 hp;
 		running_cost_base:				RUNNING_COST_STEAM;
 		dual_headed:					0;
-		default_cargo_type:				PASS;
-		cargo_capacity:					50;
+		default_cargo_type:				PASS;		
 		weight:							27 ton;
 		engine_class:					ENGINE_CLASS_STEAM;
 		tractive_effort_coefficient:	0.3;
@@ -75,7 +74,6 @@ item (FEAT_TRAINS, item_Toby, 60071) {
 	graphics {
 	additional_text:					return(string(str_purchase_type_steam,string(str_Toby_Desc),string(str_Toby_usage)));
 	can_attach_wagon:					CB_RESULT_ATTACH_ALLOW;
-	cargo_capacity:						return 0;
 	cargo_subtype_text:					sw_Toby_cargo_subtype_text;
 	articulated_part:        			switch_articulated_Toby;
 	default: 							sw_Toby;
@@ -86,7 +84,7 @@ item (FEAT_TRAINS, item_Toby, 60071) {
 }
 }
 
-item (FEAT_TRAINS, item_Henrietta, 60072) {
+item (FEAT_TRAINS, item_Henrietta, 10072) {
 	property {
 		name: 							string(STR_Henrietta_Name);
 		climates_available: 			NO_CLIMATE;
@@ -106,7 +104,7 @@ item (FEAT_TRAINS, item_Henrietta, 60072) {
 		weight:							15 ton;
 		tractive_effort_coefficient:	0;
 		air_drag_coefficient:			0;
-		length:							4;
+		length:							5;
 		effect_spawn_model_and_powered:	EFFECT_SPAWN_MODEL_NONE;
 		extra_weight_per_wagon:			0;
 		bitmask_vehicle_info:			0;
@@ -119,7 +117,7 @@ item (FEAT_TRAINS, item_Henrietta, 60072) {
 }
 }
 
-item (FEAT_TRAINS, item_Elsie, 60073) {
+item (FEAT_TRAINS, item_Elsie, 10073) {
 	property {
 		name: 							string(STR_Elsie_Name);
 		climates_available: 			NO_CLIMATE;
@@ -139,7 +137,7 @@ item (FEAT_TRAINS, item_Elsie, 60073) {
 		weight:							4 ton;
 		tractive_effort_coefficient:	0;
 		air_drag_coefficient:			0;
-		length:							2;
+		length:							3;
 		effect_spawn_model_and_powered:	EFFECT_SPAWN_MODEL_NONE;
 		extra_weight_per_wagon:			0;
 		bitmask_vehicle_info:			0;

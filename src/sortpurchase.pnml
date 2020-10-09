@@ -6,6 +6,7 @@ sort(FEAT_TRAINS, [
  item_James,
  item_Percy,
  item_Toby,
+ item_PipEmma, // IC125/Class 253
  item_AnnieClarabel,
  item_ExpressCoach
  ]);

@@ -1,0 +1,67 @@
+spriteset(spriteset_PipEmma_Purchase, "gfx/Pip_Emma.png") {
+	tmpl_coach_33(0, 13)
+}
+
+spriteset(spriteset_PipEmma, "gfx/Pip_Emma.png") {
+	tmpl_coach_33(0, 13)
+}
+
+switch(FEAT_TRAINS,SELF, sw_BRPipEmma,cargo_subtype){
+    0:	spriteset_PipEmma;
+}
+switch(FEAT_TRAINS,SELF,sw_BRPipEmma_cargo_subtype_text,cargo_subtype){
+    0:	return string(STR_PipEmma_Name);
+       return CB_RESULT_NO_TEXT;
+}
+
+switch(FEAT_TRAINS,SELF,sw_BRPipEmma_sound_type,cargo_subtype){
+    0:	return sw_hst_sound;
+	return sw_hst_sound;
+}
+
+item (FEAT_TRAINS, item_PipEmma, 2531) {
+	property {
+		name: 							string(STR_PipEmma_Name);
+		climates_available: 			ALL_CLIMATES;
+		introduction_date:				date(1975,4,21);
+		model_life:						12;
+		retire_early:					1;
+		vehicle_life:					50;
+		reliability_decay:				7;
+		refittable_cargo_classes:		CC_PASSENGERS;
+		cargo_allow_refit:				[PASS, TOUR];
+		loading_speed:					3;
+		cost_factor:					43;
+		running_cost_factor:			52;
+		sprite_id:						SPRITE_ID_NEW_TRAIN;
+		speed:							125 mph;
+		misc_flags:						TRAIN_FLAG_MU;
+		refit_cost:						0;
+		track_type:						RAIL;
+		ai_special_flag:				AI_FLAG_CARGO;
+		power:							4500 hp;
+		running_cost_base:				RUNNING_COST_DIESEL;
+		dual_headed:					1;
+		default_cargo_type:				PASS;
+		cargo_capacity:					1;
+		weight:							214 ton;
+		engine_class:					ENGINE_CLASS_DIESEL;
+		tractive_effort_coefficient:	0.3;
+		air_drag_coefficient:			0.1;
+		length:							8;
+		effect_spawn_model_and_powered:	EFFECT_SPAWN_MODEL_DIESEL;
+		extra_weight_per_wagon:			0;
+		bitmask_vehicle_info:			0;
+	}
+	graphics {
+	additional_text:					return(string(str_purchase_type_diesel,string(str_route_5),string(str_BRPipEmma_usage),string(str_BRPipEmma_eos),string(str_BRPipEmma_liveries)));
+	can_attach_wagon:					CB_RESULT_ATTACH_ALLOW;
+	cargo_capacity:						return 0;
+	cargo_subtype_text:					sw_BRPipEmma_cargo_subtype_text;
+	default: 							sw_BRPipEmma;
+	purchase:							spriteset_PipEmma_Purchase;
+	colour_mapping: 					return PALETTE_CC_FIRST;
+	create_effect:						diesel_create_visual_effect;
+	sound_effect:						sw_BRPipEmma_sound_type;
+}
+}
