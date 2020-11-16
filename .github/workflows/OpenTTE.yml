@@ -12,7 +12,7 @@ jobs:
       - name: Dependencies
         run: pip3 install nml
       - name: Build
-        run: python3 build.py OpenTTE
+        run: python3 build.py --compile OpenTTE
       - uses: actions/upload-artifact@v2
         with:
           name: OpenTTE

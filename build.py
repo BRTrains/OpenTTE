@@ -295,40 +295,33 @@ def main(grf_name, src_dir, lang_dir, gfx_dir, b_compile_grf, b_run_game):
 
 
 if __name__ == "__main__":
+    import sys
+
     # Parser arguments
     parser = ArgumentParser(description="Compile pnml files into one nml file")
     parser.add_argument("grf_name")
     parser.add_argument("--src", default="src", help="Source files directory")
-    parser.add_argument("--lang",
-                        default="lang",
-                        help="Language files directory")
-    parser.add_argument("--gfx",
-                        default="gfx",
-                        help="Graphics files directory")
-    parser.add_argument("--compile",
-                        action="store_true",
-                        help="Compile the nml file with nmlc")
-    parser.add_argument(
-        "--run",
-        action="store_true",
-        help="Run the game after compilation (will also compile the file.  Also kills existing instances)")
+    parser.add_argument("--lang", default="lang", help="Language files directory")
+    parser.add_argument("--gfx", default="gfx", help="Graphics files directory")
+    parser.add_argument("--compile", action="store_true", help="Compile the nml file with nmlc")
+    parser.add_argument("--run", action="store_true", help="Run the game after compilation")
     args = parser.parse_args()
 
     # Reports any errors in the nml file compilation process
-    error_code = main(args.grf_name, args.src, args.lang, args.gfx,
-                      args.compile, args.run)
+    error_code = main(args.grf_name, args.src, args.lang, args.gfx, args.compile, args.run)
+
     if error_code == -1:
-        print(
-            "The nml file failed to compile properly.  Please consult the log")
+        print("The nml file failed to compile properly.  Please consult the log")
+        sys.exit(1)
     elif error_code == -2:
         print("The nml file compiled correctly, but nml failed to compile it")
+        sys.exit(1)
     elif error_code == -3:
-        print(
-            "The grf file compiled successfully but the game failed to start")
+        print("The grf file compiled successfully but the game failed to start")
+        sys.exit(1)
     elif error_code == 1:
         print("The grf file was compiled successfully")
     elif error_code == 2:
-        print(
-            "The grf file was compiled successfully and the game was started and ended")
+        print("The grf file was compiled successfully and the game was started and ended")
     else:
         print("The nml file was compiled successfully (this is the not grf)")
