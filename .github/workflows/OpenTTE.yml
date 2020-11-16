@@ -8,6 +8,6 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - name: Dependencies
-        run: pip3 install nml
+        run: pip3 install setuptools pip nml
       - name: Build
         run: python3 build.py OpenTTE
