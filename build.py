@@ -1,5 +1,4 @@
 from pathlib import Path
-from sys import argv
 from argparse import ArgumentParser
 from importlib import util
 
@@ -12,10 +11,10 @@ def check_project_structure(src_directory: Path, gfx_directory: Path,
     # Check that the project is properly structured
     if not src_directory.exists():
         print("\"src\" directory not found.  Aborting")
-        return (False, -1)
+        return False, -1
     if not gfx_directory.exists():
         print("\"gfx\" directory not found.  Aborting")
-        return (False, -1)
+        return False, -1
     if not lang_directory.exists():
         print(
             "\"lang\" directory not found.  Assuming hard-coded strings (this is not best practice)"
@@ -27,19 +26,19 @@ def check_project_structure(src_directory: Path, gfx_directory: Path,
         print(
             "\"grf.pnml\" not found.  It should be in \"src\" and contain the grf block"
         )
-        return (False, -1)
+        return False, -1
     if not src_directory.joinpath("railtypes.pnml").exists():
         print(
             "\"railtypes.pnml\" not found.  It should be in \"src\" and contain the railtypetable block"
         )
-        return (False, -1)
+        return False, -1
     if not src_directory.joinpath("templates.pnml").exists():
         print(
             "\"templates.pnml\" not found.  Assuming no templates are required"
         )
 
     print("Project structure is correct\n")
-    return (has_lang_dir, 0)
+    return has_lang_dir, 0
 
 
 def copy_file(filepath: Path, nml_file: str):
@@ -113,6 +112,7 @@ def compile_grf(has_lang_dir, grf_name, lang_dir):
             parameters = ["build/" + grf_name + ".nml"]
         try:
             # Try to compile the nml file
+            print(parameters)
             nml.main.main(parameters)
         except SystemExit:
             # nml uses sys.exit(), so catch this to stop the program exiting
@@ -134,12 +134,12 @@ def run_game(grf_name):
     if platform.startswith("linux"):
         newgrf_dir = Path.home().joinpath(".openttd", "newgrf")
         executable_path = "/usr/bin/openttd"
-        kill_cmd = ["killall","openttd"]
+        kill_cmd = ["killall", "openttd"]
         print("Detected as Linux")
     elif platform.startswith("win32"):
         newgrf_dir = Path.home().joinpath("Documents", "OpenTTD", "newgrf")
         executable_path = "C:/Program Files/OpenTTD/openttd.exe"
-        kill_cmd = ["taskkill.exe" "/IM" "OpenTTD.exe"]
+        kill_cmd = ["taskkill.exe", "/IM", "openttd.exe"]
         print("Detected as Windows")
     else:
         print("Detected as Other.  Cannot run game.")
@@ -208,7 +208,7 @@ def run_game(grf_name):
     from os import devnull
 
     # Kill existing processes
-    print("Killing existing processes")
+    print("Killing existing processes: %s" % kill_cmd)
     try:
         kill_process = Popen(kill_cmd)
         kill_process.wait()
@@ -220,11 +220,16 @@ def run_game(grf_name):
     copy("build/" + grf_name + ".grf", Path(newgrf_dir))
 
     # Run the game in it's root directory
-    print("Running game\n")
+    print("Running game: %s" % executable_path)
     # Redirect stdout and stderr
     null = open(devnull, "w")
-    Popen([executable_path, "-t", "2050", "-g"], cwd=Path(executable_path).parent, stdout=null, stderr=null)
-    null
+    subprocess = Popen(
+        [executable_path, "-t", "2050", "-g", "OpenTTE.sav"],
+        cwd=Path(executable_path).parent,
+        stdout=null,
+        stderr=null,
+    )
+    subprocess.wait()
     return 2
 
 
@@ -279,7 +284,7 @@ def main(grf_name, src_dir, lang_dir, gfx_dir, b_compile_grf, b_run_game):
         error = compile_grf(has_lang_dir, grf_name, lang_dir)
         if error == -2:
             return -2
-        elif b_run_game == False:
+        elif not b_run_game:
             return 1
 
     # Optionally run the game
@@ -324,6 +329,6 @@ if __name__ == "__main__":
         print("The grf file was compiled successfully")
     elif error_code == 2:
         print(
-            "The grf file was compiled successfully, and the game was started")
+            "The grf file was compiled successfully and the game was started and ended")
     else:
         print("The nml file was compiled successfully (this is the not grf)")

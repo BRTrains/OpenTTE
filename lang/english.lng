@@ -1,8 +1,8 @@
 ﻿﻿##grflangid 0x01
 
 # GRF name and description
-STR_GRF_NAME							:OpenTTE - A Thomas the Tank Engine Set
-STR_GRF_DESC							:A Thomas The Tank Engine trainset for OpenTTD.{}{}{WHITE}{COPYRIGHT}2020 {LTBLUE}Audigex{WHITE}{}{WHITE}License: {LTBLUE}GPL v2
+STR_GRF_NAME					:OpenTTE - A Thomas The Tank Engine Set
+STR_GRF_DESC					:A Thomas The Tank Engine trainset for OpenTTD.{}{}{WHITE}{COPYRIGHT}2020 {LTBLUE}Audigex{WHITE}{}{WHITE}License: {LTBLUE}GPL v2
 
 # Parameters
 STR_PARAM_NAME_SOUNDS           :Use sounds
@@ -11,7 +11,7 @@ STR_PARAM_SOUNDS_OFF			:Disabled
 STR_PARAM_SOUNDS_ON				:Enabled
 
 # Messages
-STR_CANNOT_ATTACH						:Cannot attach a different class of train
+STR_CANNOT_ATTACH				:Cannot attach a different class of train
 
 # Vehicle types
 str_purchase_type_diesel		:{RED}Diesel locomotive
@@ -26,31 +26,31 @@ STR_Thomas_Name                 :Thomas The Tank Engine (#1)
 STR_Thomas_Desc                 :An 0-6-0 Tank Engine, and a really useful engine
 STR_Thomas_Usage                :Branch Lines
 
-STR_Edward_Name                 :Edward the Blue Engine (#2)
+STR_Edward_Name                 :Edward The Blue Engine (#2)
 STR_Edward_Desc                 :A 4-4-0 Locomotive
 STR_Edward_Usage                :Local Passenger Services
 
-STR_Henry_Name                  :Henry the Green Engine (#3)
+STR_Henry_Name                  :Henry The Green Engine (#3)
 STR_Henry_Desc                  :4-6-0 Large Locomotive
 STR_Henry_Usage                 :Long Distance Passenger and Heavy Freight
 
-STR_Gordon_Name                 :Gordon the Big Engine (#4)
+STR_Gordon_Name                 :Gordon The Big Engine (#4)
 STR_Gordon_Desc                 :4-6-2 Express Locomotive
 STR_Gordon_Usage                :Express Passenger Services
 
-STR_James_Name                  :James the Red Engine (#5)
+STR_James_Name                  :James The Red Engine (#5)
 STR_James_Desc                  :A 2-6-0 Locomotive
 STR_James_Usage                 :Mixed Freight and Passengers
 
-STR_Percy_Name                  :Percy the Small Engine (#6)
+STR_Percy_Name                  :Percy The Small Engine (#6)
 STR_Percy_Desc                  :A small 0-4-0 Tank Engine
 STR_Percy_Usage                 :Shunting and short distance Freight
 
-STR_Toby_Name                   :Toby the Tram (#7)
+STR_Toby_Name                   :Toby The Tram (#7)
 STR_Toby_Desc                   :An 0-6-0 Tram
 STR_Toby_USage                  :Branch Lines, particularly in towns
 
-STR_Duck_Name                   :Duck the Great Western Engine (#8)
+STR_Duck_Name                   :Duck The Great Western Engine (#8)
 STR_Duck_Desc                   :A large 0-6-0 tank engine
 STR_Duck_Usage                  :Branch Lines, particularly Freight
 
@@ -58,11 +58,11 @@ STR_DonaldDouglas_Name          :Donald and Douglas (#9 & #10)
 STR_DonaldDouglas_Desc          :Light 0-6-0 Locomotives
 STR_DonaldDouglas_Usage         :Freight (and snowplowing)
 
-STR_Oliver_Name                 :Oliver the Great Western Engine (#11)
+STR_Oliver_Name                 :Oliver The Great Western Engine (#11)
 STR_Oliver_Desc                 :An 0-6-0 Tank Engine
 STR_Oliver_Usage                :Branch Lines (Passenger)
 
-STR_Daisy_Name                  :Daisy the Diesel Railcar (D1)
+STR_Daisy_Name                  :Daisy The Diesel Railcar (D1)
 STR_Daisy_Desc                  :A Diesel Railcar (BR 101 Protype)
 STR_Daisy_Usage                 :Short Distance Passenger
 
@@ -104,7 +104,7 @@ STR_Bulgie_Name                 :Bulgie The Bus
 STR_Bulgie_Desc                 :A Double Decker Bus (AEC Bridgemaster)
 STR_Bulgie_Usage                :Short Distance Passenger Services
 
-STR_Harold_Name                 :Harold the Helicopter
+STR_Harold_Name                 :Harold The Helicopter
 STR_Harold_Desc                 :A Helicopter
 STR_Harold_Usage                :Just flying around
 
