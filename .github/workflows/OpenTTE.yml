@@ -7,7 +7,9 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
+      - name: setuptools
+        run: pip3 install setuptools pip
       - name: Dependencies
-        run: pip3 install setuptools pip nml
+        run: pip3 install nml
       - name: Build
         run: python3 build.py OpenTTE
