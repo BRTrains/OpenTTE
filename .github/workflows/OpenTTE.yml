@@ -13,3 +13,7 @@ jobs:
         run: pip3 install nml
       - name: Build
         run: python3 build.py OpenTTE
+      - uses: actions/upload-artifact@v2
+        with:
+          name: OpenTTE
+          path: build/OpenTTE.grf
