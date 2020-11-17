@@ -74,14 +74,15 @@ STR_Bear_Name                   :Bear (D3)
 STR_Bear_Desc                   :A Diesel-Hydrualic Locomotive (BR 35)
 STR_Bear_Usage                  :Local Distance Freight or Passenger
 
-STR_PipEmma_Name                :Pip And Emma
-STR_PipEmma_Desc                :Diesl-Electric High Speed Locomotives (BR43/IC125)
+STR_PipEmma_Name                :Pip and Emma
+STR_PipEmma_Desc                :Diesel-Electric High Speed Locomotives (BR43/IC125)
 STR_PipEmma_Usage               :High Speed Passenger Express
 
-STR_AnnieClarabel_Name          :Annie and Clarabel (Coaches)
-STR_AnnieClarabel_Desc          :Passenger Coaches
+STR_Annie_Name                  :Annie (Coach)
+STR_Clarabel_Name               :Clarabel (Coach)
+STR_AnnieClarabel_Desc          :Passenger Coache
 STR_AnnieClarabel_Usage         :Local/Branchline passenger services
-STR_AnnieClarabel_liveries       :Liveries: Annie, Clarabel
+STR_AnnieClarabel_Liveries      :Liveries: Annie, Clarabel
 
 STR_Henrietta_Name              :Henrietta (Coach)
 STR_Henrietta_Desc              :A passenger coach, and Toby's good friend
@@ -91,10 +92,16 @@ STR_Elsie_Name                  :Elsie (Brake Van)
 STR_Elsie_Desc                  :A brake van, and Toby's friend
 STR_Elsie_Usage                 : Coupled to Toby and Henrietta
 
-STR_ExpressCoach_Name           :Express Coach
-STR_ExpressCoach_Desc           :Fast coaches for the express
+STR_ExpressCoach_RWS_Name       :Express RWS (Coach)
+STR_ExpressCoach_Second_Name    :Express Second Class (Coach)
+STR_ExpressCoach_First_Name     :Express First Class (Coach)
+STR_ExpressCoach_Desc           :Fast coach for the express
 STR_ExpressCoach_Usage          :Express Passenger
-STR_ExpressCoach_liveries       :Liveries: RWS, First Class, Second Class
+STR_ExpressCoach_Liveries       :Liveries: RWS, First Class, Second Class
+
+STR_PipEmma_Coach_Name          :Express Inter City 125 (Coach)
+STR_PipEmma_Coach_Desc          :Inter City 125 Coach for Pip and Emma
+STR_PipEmma_Coach_Usage         :Coupled to Pip and Emma, for branch line services
 
 STR_Bertie_Name                 :Bertie The Bus
 STR_Bertie_Desc                 :A single deck bus (AEC Regal)
@@ -112,5 +119,3 @@ STR_Harold_Usage                :Just flying around
 STR_Livery_ExpressCoach_RWS     :RWS
 STR_Livery_ExpressCoach_First   :First Class
 STR_Livery_ExpressCoach_Second  :Second Class
-STR_Livery_Annie                :Annie
-STR_Livery_Clarabel             :Clarabel

@@ -1,6 +1,6 @@
 template tmpl_purchase(x,y){
     //xpos, ypos,   width,  height, xoffset, yoffset,   Flags
-    [x,     y,      87,     12,     -25,-   6,          NOWHITE]
+    [x,     y,      68,     12,     -25,     -6,        NOWHITE]
 }
 
 // Used for Gordon and Henry
@@ -46,7 +46,7 @@ template tmpl_tender_16(x, y) {
     [x,     y,      8,      14,     -3,      -10] // N
     [x+9,   y,      12,     10,     -6,      -5]  // NE
     [x+22,  y,      16,     10,     2,       -6]  // E
-    [x+39,  y,      12,     10,     5,       -1]   // SE
+    [x+39,  y,      12,     10,     5,       -1]  // SE
     [x+52,  y,      8,      14,     -3,      -1]  // S
     [x+61,  y,      12,     10,     -18,     0]   // SW
     [x+74,  y,      16,     10,     -19,     -6]  // W
@@ -55,7 +55,7 @@ template tmpl_tender_16(x, y) {
 
 template tmpl_thomas(x, y) {
     //leftx, topy, width, height, offsetx, offsety
-    [x,     y,      8,      17,     -3,      -10] // N 
+    [x,     y,      8,      17,     -3,      -10] // N
     [x+9,   y,      14,     13,     -9,      -6]  // NE
     [x+24,  y,      21,     12,     -6,      -8]  // E
     [x+46,  y,      15,     13,     2,       -4]  // SE
@@ -79,7 +79,7 @@ template tmpl_percy(x, y) {
 
 template tmpl_toby(x, y) {
     //leftx, topy, width, height, offsetx, offsety
-    [x,     y,      8,      14,     -3,      -10] // N 
+    [x,     y,      8,      14,     -3,      -10] // N
     [x+9,   y,      14,     12,     -7,      -7]  // NE
     [x+24,  y,      17,     11,     -6,      -6]  // E
     [x+42,  y,      14,     12,     3,       -4]  // SE

@@ -224,7 +224,7 @@ def run_game(grf_name):
     # Redirect stdout and stderr
     null = open(devnull, "w")
     subprocess = Popen(
-        [executable_path, "-t", "2050", "-g"],
+        [executable_path, "-t", "1920", "-g"],
         cwd=Path(executable_path).parent,
         stdout=null,
         stderr=null,

@@ -42,18 +42,17 @@ item (FEAT_TRAINS, item_Toby, 10071) {
 	property {
 		name: 							string(STR_Toby_Name);
 		climates_available: 			ALL_CLIMATES;
-		introduction_date:				date(1925,1,1);
-		model_life:						100;
-		retire_early:					1;
-		vehicle_life:					100;
+		introduction_date:				date(1920,1,1);
+		model_life:						VEHICLE_NEVER_EXPIRES;
+		vehicle_life:					18;
 		reliability_decay:				7;
 		refittable_cargo_classes:		0;
 		cargo_allow_refit:				[PASS, TOUR];
 		loading_speed:					3;
 		cost_factor:					27;
-		running_cost_factor:			32;
+		running_cost_factor:			27;
 		sprite_id:						SPRITE_ID_NEW_TRAIN;
-		speed:							50 mph;
+		speed:							42 mph;
 		misc_flags:						TRAIN_FLAG_NO_BREAKDOWN_SMOKE;
 		refit_cost:						0;
 		track_type:						RAIL;
@@ -91,9 +90,10 @@ item (FEAT_TRAINS, item_Henrietta, 10072) {
 		refittable_cargo_classes:		0;
 		cargo_allow_refit:				[PASS, TOUR];
 		loading_speed:					3;
-		cost_factor:					0;
-		running_cost_factor:			0;
+		cost_factor:					40;
+		running_cost_factor:			40;
 		sprite_id:						SPRITE_ID_NEW_TRAIN;
+		speed:							46 mph;
 		refit_cost:						0;
 		track_type:						RAIL;
 		power:							0;
@@ -101,7 +101,7 @@ item (FEAT_TRAINS, item_Henrietta, 10072) {
 		dual_headed:					0;
 		default_cargo_type:				PASS;
 		cargo_capacity:					40;
-		weight:							15 ton;
+		weight:							20 ton;
 		tractive_effort_coefficient:	0;
 		air_drag_coefficient:			0;
 		length:							5;
@@ -112,7 +112,7 @@ item (FEAT_TRAINS, item_Henrietta, 10072) {
 	graphics {
 	can_attach_wagon:					CB_RESULT_ATTACH_ALLOW;
 	cargo_capacity:						return 0;
-	default: 							sw_Henrietta ;
+	default: 							sw_Henrietta;
 	colour_mapping: 					return PALETTE_CC_FIRST;
 }
 }
@@ -124,9 +124,10 @@ item (FEAT_TRAINS, item_Elsie, 10073) {
 		refittable_cargo_classes:		0;
 		cargo_allow_refit:				[PASS, TOUR];
 		loading_speed:					3;
-		cost_factor:					0;
-		running_cost_factor:			0;
+		cost_factor:					10;
+		running_cost_factor:			10;
 		sprite_id:						SPRITE_ID_NEW_TRAIN;
+		speed:							40 mph;
 		refit_cost:						0;
 		track_type:						RAIL;
 		power:							0;
@@ -134,7 +135,7 @@ item (FEAT_TRAINS, item_Elsie, 10073) {
 		dual_headed:					0;
 		default_cargo_type:				PASS;
 		cargo_capacity:					1;
-		weight:							4 ton;
+		weight:							10 ton;
 		tractive_effort_coefficient:	0;
 		air_drag_coefficient:			0;
 		length:							3;
