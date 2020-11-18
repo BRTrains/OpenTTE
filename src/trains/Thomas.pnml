@@ -1,13 +1,13 @@
 spriteset(spriteset_Thomas_Purchase, "gfx/Thomas_Percy_AnnieClarabel.png") {
-	tmpl_purchase(0, 0)
+    tmpl_purchase(0, 0)
 }
 
 spriteset(spriteset_Thomas, "gfx/Thomas_Percy_AnnieClarabel.png") {
-	tmpl_thomas(0, 13)
+    tmpl_thomas(0, 13)
 }
 
 switch(FEAT_TRAINS,SELF, sw_Thomas,cargo_subtype){
-    0:	spriteset_Thomas;
+    0:    spriteset_Thomas;
 }
 
 switch (FEAT_TRAINS, SELF, switch_articulated_Thomas, extra_callback_info1) {
@@ -20,48 +20,48 @@ switch(FEAT_TRAINS,SELF,sw_Thomas_cargo_subtype_text,cargo_subtype){
 }
 
 item (FEAT_TRAINS, item_Thomas, 10011) {
-	property {
-		name: 							string(STR_Thomas_Name);
-		climates_available: 			ALL_CLIMATES;
-		introduction_date:				date(1920,1,1);
-		model_life:						VEHICLE_NEVER_EXPIRES;
-		vehicle_life:					18;
-		reliability_decay:				7;
-		refittable_cargo_classes:		0;
-		cargo_allow_refit:				[GOOD];
-		loading_speed:					3;
-		cost_factor:					55;
-		running_cost_factor:			55;
-		sprite_id:						SPRITE_ID_NEW_TRAIN;
-		speed:							64 mph;
-		misc_flags:						TRAIN_FLAG_NO_BREAKDOWN_SMOKE;
-		refit_cost:						0;
-		track_type:						RAIL;
-		ai_special_flag:				AI_FLAG_CARGO;
-		power:							700 hp;
-		running_cost_base:				RUNNING_COST_STEAM;
-		dual_headed:					0;
-		default_cargo_type:				GOOD;
-		cargo_capacity:					1;
-		weight:							55 ton;
-		engine_class:					ENGINE_CLASS_STEAM;
-		tractive_effort_coefficient:	0.3;
-		air_drag_coefficient:			0.1;
-		length:							5;
-		effect_spawn_model_and_powered:	EFFECT_SPAWN_MODEL_STEAM;
-		extra_weight_per_wagon:			0;
-		bitmask_vehicle_info:			0;
-	}
-	graphics {
-	additional_text:					return(string(str_purchase_type_steam,string(str_Thomas_Desc),string(str_Thomas_usage)));
-	can_attach_wagon:					CB_RESULT_ATTACH_ALLOW;
-	cargo_capacity:						return 0;
-	cargo_subtype_text:					sw_Thomas_cargo_subtype_text;
-	articulated_part:        			switch_articulated_Thomas;
-	default: 							sw_Thomas;
-	purchase:							spriteset_Thomas_Purchase;
-	colour_mapping: 					return PALETTE_CC_FIRST;
-	create_effect:						steam_create_visual_effect;
-	sound_effect:						sw_steam_sound;
-}
+    property {
+        name:                               string(STR_Thomas_Name);
+        climates_available:                 ALL_CLIMATES;
+        introduction_date:                  date(1920,1,1);
+        model_life:                         VEHICLE_NEVER_EXPIRES;
+        vehicle_life:                       18;
+        reliability_decay:                  7;
+        refittable_cargo_classes:           0;
+        cargo_allow_refit:                  [GOOD];
+        loading_speed:                      3;
+        cost_factor:                        55;
+        running_cost_factor:                55;
+        sprite_id:                          SPRITE_ID_NEW_TRAIN;
+        speed:                              64 mph;
+        misc_flags:                         TRAIN_FLAG_NO_BREAKDOWN_SMOKE;
+        refit_cost:                         0;
+        track_type:                         RAIL;
+        ai_special_flag:                    AI_FLAG_CARGO;
+        power:                              700 hp;
+        running_cost_base:                  RUNNING_COST_STEAM;
+        dual_headed:                        0;
+        default_cargo_type:                 GOOD;
+        cargo_capacity:                     1;
+        weight:                             55 ton;
+        engine_class:                       ENGINE_CLASS_STEAM;
+        tractive_effort_coefficient:        0.3;
+        air_drag_coefficient:               0.1;
+        length:                             5;
+        effect_spawn_model_and_powered:     EFFECT_SPAWN_MODEL_STEAM;
+        extra_weight_per_wagon:             0;
+        bitmask_vehicle_info:               0;
+    }
+    graphics {
+        additional_text:                    return(string(str_purchase_type_steam,string(str_Thomas_Desc),string(str_Thomas_usage)));
+        can_attach_wagon:                   CB_RESULT_ATTACH_ALLOW;
+        cargo_capacity:                     return 0;
+        cargo_subtype_text:                 sw_Thomas_cargo_subtype_text;
+        articulated_part:                   switch_articulated_Thomas;
+        default:                            sw_Thomas;
+        purchase:                           spriteset_Thomas_Purchase;
+        colour_mapping:                     return PALETTE_CC_FIRST;
+        create_effect:                      steam_create_visual_effect;
+        sound_effect:                       sw_steam_sound;
+    }
 }

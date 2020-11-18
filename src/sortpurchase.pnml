@@ -12,5 +12,7 @@ sort(FEAT_TRAINS, [
      item_ExpressCoach_RWS,
      item_ExpressCoach_Second,
      item_ExpressCoach_First,
-     item_PipEmma_Coach
+     item_PipEmma_Coach,
+     item_Henrietta,
+     item_Elsie
  ]);

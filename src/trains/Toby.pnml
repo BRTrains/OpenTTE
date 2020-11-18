@@ -1,152 +1,138 @@
 spriteset(spriteset_Toby_Purchase, "gfx/Toby.png") {
-	tmpl_purchase(0, 0)
+    tmpl_purchase(0, 0)
 }
 
+spriteset(spriteset_Henrietta_Purchase, "gfx/Toby.png") {
+    tmpl_purchase(89, 0)
+}
+
+spriteset(spriteset_Elsie_Purchase, "gfx/Toby.png") {
+    tmpl_purchase(178, 0)
+}
+
+
 spriteset(spriteset_Toby, "gfx/Toby.png") {
-	tmpl_toby(0, 13)
+    tmpl_toby(0, 13)
 }
 
 spriteset(spriteset_Henrietta, "gfx/Toby.png") {
-	tmpl_coach_21(0, 28)
+    tmpl_coach_21(0, 28)
 }
 
 spriteset(spriteset_Elsie, "gfx/Toby.png") {
-	tmpl_brake_van(0, 45)
+    tmpl_brake_van(0, 45)
 }
 
-switch(FEAT_TRAINS,SELF, sw_Toby,cargo_subtype){
-    0:	spriteset_Toby;
-}
-
-switch(FEAT_TRAINS,SELF, sw_Henrietta,cargo_subtype){
-    0:	spriteset_Henrietta;
-}
-
-switch(FEAT_TRAINS,SELF, sw_Elsie ,cargo_subtype){
-    0:	spriteset_Elsie;
-}
-
-
-switch (FEAT_TRAINS, SELF, switch_articulated_Toby, extra_callback_info1) {
-	1: return item_Henrietta;
-    2: return item_Elsie;
-    return CB_RESULT_NO_MORE_ARTICULATED_PARTS; //stop adding vehicle parts
-}
-
-switch(FEAT_TRAINS,SELF,sw_Toby_cargo_subtype_text,cargo_subtype){
-    0: return string(STR_Toby_Name);
-       return CB_RESULT_NO_TEXT;
-}
 
 item (FEAT_TRAINS, item_Toby, 10071) {
-	property {
-		name: 							string(STR_Toby_Name);
-		climates_available: 			ALL_CLIMATES;
-		introduction_date:				date(1920,1,1);
-		model_life:						VEHICLE_NEVER_EXPIRES;
-		vehicle_life:					18;
-		reliability_decay:				7;
-		refittable_cargo_classes:		0;
-		cargo_allow_refit:				[PASS, TOUR];
-		loading_speed:					3;
-		cost_factor:					27;
-		running_cost_factor:			27;
-		sprite_id:						SPRITE_ID_NEW_TRAIN;
-		speed:							42 mph;
-		misc_flags:						TRAIN_FLAG_NO_BREAKDOWN_SMOKE;
-		refit_cost:						0;
-		track_type:						RAIL;
-		ai_special_flag:				AI_FLAG_CARGO;
-		power:							200 hp;
-		running_cost_base:				RUNNING_COST_STEAM;
-		dual_headed:					0;
-		default_cargo_type:				PASS;		
-		weight:							27 ton;
-		engine_class:					ENGINE_CLASS_STEAM;
-		tractive_effort_coefficient:	0.3;
-		air_drag_coefficient:			0.1;
-		length:							5;
-		effect_spawn_model_and_powered:	EFFECT_SPAWN_MODEL_STEAM;
-		extra_weight_per_wagon:			0;
-		bitmask_vehicle_info:			0;
-	}
-	graphics {
-	additional_text:					return(string(str_purchase_type_steam,string(str_Toby_Desc),string(str_Toby_usage)));
-	can_attach_wagon:					CB_RESULT_ATTACH_ALLOW;
-	cargo_subtype_text:					sw_Toby_cargo_subtype_text;
-	articulated_part:        			switch_articulated_Toby;
-	default: 							sw_Toby;
-	purchase:							spriteset_Toby_Purchase;
-	colour_mapping: 					return PALETTE_CC_FIRST;
-	create_effect:						steam_create_visual_effect;
-	sound_effect:						sw_steam_sound;
-}
+    property {
+        name:                               string(STR_Toby_Name);
+        climates_available:                 ALL_CLIMATES;
+        introduction_date:                  date(1920,1,1);
+        model_life:                         VEHICLE_NEVER_EXPIRES;
+        vehicle_life:                       18;
+        reliability_decay:                  7;
+        refittable_cargo_classes:           0;
+        cargo_allow_refit:                  [PASS, TOUR];
+        loading_speed:                      3;
+        cost_factor:                        27;
+        running_cost_factor:                27;
+        sprite_id:                          SPRITE_ID_NEW_TRAIN;
+        speed:                              42 mph;
+        misc_flags:                         TRAIN_FLAG_NO_BREAKDOWN_SMOKE;
+        refit_cost:                         0;
+        track_type:                         RAIL;
+        ai_special_flag:                    AI_FLAG_CARGO;
+        power:                              200 hp;
+        running_cost_base:                  RUNNING_COST_STEAM;
+        dual_headed:                        0;
+        default_cargo_type:                 PASS;
+        weight:                             27 ton;
+        engine_class:                       ENGINE_CLASS_STEAM;
+        tractive_effort_coefficient:        0.3;
+        air_drag_coefficient:               0.1;
+        length:                             5;
+        effect_spawn_model_and_powered:     EFFECT_SPAWN_MODEL_STEAM;
+        extra_weight_per_wagon:             0;
+        bitmask_vehicle_info:               0;
+    }
+    graphics {
+        additional_text:                    return(string(str_purchase_type_steam,string(str_Toby_Desc),string(str_Toby_usage)));
+        can_attach_wagon:                   CB_RESULT_ATTACH_ALLOW;
+        default:                            spriteset_Toby;
+        purchase:                           spriteset_Toby_Purchase;
+        colour_mapping:                     return PALETTE_CC_FIRST;
+        create_effect:                      steam_create_visual_effect;
+        sound_effect:                       sw_steam_sound;
+    }
 }
 
 item (FEAT_TRAINS, item_Henrietta, 10072) {
-	property {
-		name: 							string(STR_Henrietta_Name);
-		climates_available: 			NO_CLIMATE;
-		refittable_cargo_classes:		0;
-		cargo_allow_refit:				[PASS, TOUR];
-		loading_speed:					3;
-		cost_factor:					40;
-		running_cost_factor:			40;
-		sprite_id:						SPRITE_ID_NEW_TRAIN;
-		speed:							46 mph;
-		refit_cost:						0;
-		track_type:						RAIL;
-		power:							0;
-		running_cost_base:				RUNNING_COST_NONE;
-		dual_headed:					0;
-		default_cargo_type:				PASS;
-		cargo_capacity:					40;
-		weight:							20 ton;
-		tractive_effort_coefficient:	0;
-		air_drag_coefficient:			0;
-		length:							5;
-		effect_spawn_model_and_powered:	EFFECT_SPAWN_MODEL_NONE;
-		extra_weight_per_wagon:			0;
-		bitmask_vehicle_info:			0;
-	}
-	graphics {
-	can_attach_wagon:					CB_RESULT_ATTACH_ALLOW;
-	cargo_capacity:						return 0;
-	default: 							sw_Henrietta;
-	colour_mapping: 					return PALETTE_CC_FIRST;
-}
+    property {
+        name:                               string(STR_Henrietta_Name);
+        climates_available:                 ALL_CLIMATES;
+        refittable_cargo_classes:           0;
+        cargo_allow_refit:                  [PASS, TOUR];
+        loading_speed:                      8;
+        cost_factor:                        80;
+        running_cost_factor:                60;
+        sprite_id:                          SPRITE_ID_NEW_TRAIN;
+        speed:                              46 mph;
+        refit_cost:                         0;
+        track_type:                         RAIL;
+        power:                              0;
+        running_cost_base:                  RUNNING_COST_NONE;
+        dual_headed:                        0;
+        default_cargo_type:                 PASS;
+        cargo_capacity:                     80;
+        weight:                             20 ton;
+        tractive_effort_coefficient:        0;
+        air_drag_coefficient:               0;
+        length:                             5;
+        effect_spawn_model_and_powered:     EFFECT_SPAWN_MODEL_NONE;
+        extra_weight_per_wagon:             0;
+        bitmask_vehicle_info:               0;
+    }
+    graphics {
+        additional_text:                    return(string(str_purchase_type_steam,string(str_Henrietta_Desc),string(str_Henrietta_usage)));
+        can_attach_wagon:                   CB_RESULT_ATTACH_ALLOW;
+        default:                            spriteset_Henrietta;
+        purchase:                           spriteset_Henrietta_Purchase;
+        colour_mapping:                     return PALETTE_CC_FIRST;
+    }
 }
 
 item (FEAT_TRAINS, item_Elsie, 10073) {
-	property {
-		name: 							string(STR_Elsie_Name);
-		climates_available: 			NO_CLIMATE;
-		refittable_cargo_classes:		0;
-		cargo_allow_refit:				[PASS, TOUR];
-		loading_speed:					3;
-		cost_factor:					10;
-		running_cost_factor:			10;
-		sprite_id:						SPRITE_ID_NEW_TRAIN;
-		speed:							40 mph;
-		refit_cost:						0;
-		track_type:						RAIL;
-		power:							0;
-		running_cost_base:				RUNNING_COST_NONE;
-		dual_headed:					0;
-		default_cargo_type:				PASS;
-		cargo_capacity:					1;
-		weight:							10 ton;
-		tractive_effort_coefficient:	0;
-		air_drag_coefficient:			0;
-		length:							3;
-		effect_spawn_model_and_powered:	EFFECT_SPAWN_MODEL_NONE;
-		extra_weight_per_wagon:			0;
-		bitmask_vehicle_info:			0;
-	}
-	graphics {
-	can_attach_wagon:					CB_RESULT_ATTACH_ALLOW;
-	cargo_capacity:						return 0;
-	default: 							sw_Elsie ;
-	colour_mapping: 					return PALETTE_CC_FIRST;
-}
+    property {
+        name:                               string(STR_Elsie_Name);
+        climates_available:                 ALL_CLIMATES;
+        refittable_cargo_classes:           0;
+        cargo_allow_refit:                  [PASS, TOUR];
+        loading_speed:                      8;
+        cost_factor:                        40;
+        running_cost_factor:                30;
+        sprite_id:                          SPRITE_ID_NEW_TRAIN;
+        speed:                              40 mph;
+        refit_cost:                         0;
+        track_type:                         RAIL;
+        power:                              0;
+        running_cost_base:                  RUNNING_COST_NONE;
+        dual_headed:                        0;
+        default_cargo_type:                 PASS;
+        cargo_capacity:                     40;
+        weight:                             10 ton;
+        tractive_effort_coefficient:        0;
+        air_drag_coefficient:               0;
+        length:                             3;
+        effect_spawn_model_and_powered:     EFFECT_SPAWN_MODEL_NONE;
+        extra_weight_per_wagon:             0;
+        bitmask_vehicle_info:               0;
+    }
+    graphics {
+        additional_text:                    return(string(str_purchase_type_steam,string(str_Elsie_Desc),string(str_Elsie_usage)));
+        can_attach_wagon:                   CB_RESULT_ATTACH_ALLOW;
+        default:                            spriteset_Elsie;
+        purchase:                           spriteset_Elsie_Purchase;
+        colour_mapping:                     return PALETTE_CC_FIRST;
+    }
 }

@@ -90,7 +90,7 @@ STR_Henrietta_Usage             :Coupled to Toby, for branch line services
 
 STR_Elsie_Name                  :Elsie (Brake Van)
 STR_Elsie_Desc                  :A brake van, and Toby's friend
-STR_Elsie_Usage                 : Coupled to Toby and Henrietta
+STR_Elsie_Usage                 :Coupled to Toby and Henrietta
 
 STR_ExpressCoach_RWS_Name       :Express RWS (Coach)
 STR_ExpressCoach_Second_Name    :Express Second Class (Coach)
