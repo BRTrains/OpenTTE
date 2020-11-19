@@ -1,327 +1,247 @@
-from pathlib import Path
+import json
+import os
+import sys
+
 from argparse import ArgumentParser
-from importlib import util
+from pathlib import Path
+from shutil import copy
+from subprocess import Popen
 
 
-def check_project_structure(src_directory: Path, gfx_directory: Path,
-                            lang_directory: Path):
-
-    has_lang_dir = True
-
+def check_project_structure(src_directory: Path, lang_directory: Path):
     # Check that the project is properly structured
     if not src_directory.exists():
-        print("\"src\" directory not found.  Aborting")
-        return False, -1
-    if not gfx_directory.exists():
-        print("\"gfx\" directory not found.  Aborting")
-        return False, -1
+        print("%s directory not found." % src_directory)
+        return False
     if not lang_directory.exists():
-        print(
-            "\"lang\" directory not found.  Assuming hard-coded strings (this is not best practice)"
-        )
-        has_lang_dir = False
+        print("%s directory not found. Assuming hard-coded strings (this is not best practice)" % lang_directory)
 
     # Find the grf, railtypes, and templates files
     if not src_directory.joinpath("grf.pnml").exists():
-        print(
-            "\"grf.pnml\" not found.  It should be in \"src\" and contain the grf block"
-        )
-        return False, -1
+        print("%s/grf.pnml not found. It should contain the grf block" % src_directory)
+        return False
     if not src_directory.joinpath("railtypes.pnml").exists():
-        print(
-            "\"railtypes.pnml\" not found.  It should be in \"src\" and contain the railtypetable block"
-        )
-        return False, -1
+        print("%s/railtypes.pnml not found. It should contain the railtypetable block" % src_directory)
+        return False
     if not src_directory.joinpath("templates.pnml").exists():
-        print(
-            "\"templates.pnml\" not found.  Assuming no templates are required"
-        )
+        print("%s/templates.pnml not found. Assuming no templates are required" % src_directory)
 
     print("Project structure is correct\n")
-    return has_lang_dir, 0
+    return True
 
 
-def copy_file(filepath: Path, nml_file: str):
-    # If the pnml filepath doesn't exist, exit
-    if not filepath.exists():
-        print("The file <%s> does not exist" % str(filepath))
-        return -1
+class PnmlCompiler:
 
-    # Read the pnml file into the internal nml
-    with open(str(filepath), "r") as file:
-        nml_file += "// " + filepath.stem + filepath.suffix + "\n"
-        for line in file:
-            nml_file += line
-    nml_file += "\n\n"
-    return nml_file
+    def __init__(self, src_directory: Path, build_directory: Path):
+        self.src_directory = src_directory
+        self.build_directory = build_directory
+        self.SPECIAL_FILES = [
+            self.src_directory.joinpath("grf.pnml"),
+            self.src_directory.joinpath("railtypes.pnml"),
+            self.src_directory.joinpath("templates.pnml"),
+        ]
+
+    @staticmethod
+    def copy_file(source_file: Path, destination_file: Path):
+        # If the source_file doesn't exist, exit
+        if not source_file.exists():
+            print("The file %s does not exist" % source_file)
+            return
+
+        # Read the source file and append it to destination file
+        print("Reading file %s" % source_file)
+        with destination_file.open("a") as dst_file:
+            with source_file.open("r") as src_file:
+                dst_file.write("// %s\n\n" % source_file)
+                dst_file.write(src_file.read())
+            dst_file.write("\n\n")
+
+    def find_pnml_files(self):
+        file_dict = {}
+        # Iterate through all files in src_directory recursively, finding any that end in .pnml
+        for path in self.src_directory.rglob("*.pnml"):
+            # Don't add the special ones
+            if path not in self.SPECIAL_FILES:
+                file_dict.setdefault(path.parent.name, [])
+                file_dict[path.parent.name].append(path)
+        return file_dict
+
+    def compile(self, nml_file: Path):
+        print("Compiling nml file %s" % nml_file)
+        nml_file.unlink(True)
+
+        # Compile the special files first
+        for special_file in self.SPECIAL_FILES:
+            self.copy_file(special_file, nml_file)
+
+        # Get a list of all the pnml files in src
+        file_list = self.find_pnml_files()
+        pnml_files = []
+        # Read all the files in folders that begin with "_" into the final nml
+        for directory in file_list:
+            if directory.startswith("_"):
+                for file in file_list[directory]:
+                    file = Path(file)
+                    self.copy_file(file, nml_file)
+            else:
+                pnml_files += file_list[directory]
+
+        # Read the regular files
+        for file in sorted(pnml_files):
+            file = Path(file)
+            self.copy_file(file, nml_file)
+
+        print("Compiled all *.pnml files into %s\n" % nml_file)
 
 
-def find_pnml_files(src_directory: Path):
-    print("Finding pnml files in %s" % src_directory)
-    file_list = dict()
-    # Iterate through all files in src_directory recursively, finding any that end in .pnml
-    for path in src_directory.rglob("*.pnml"):
-        # Don't add the special ones
-        if path.stem in ["railtypes", "grf", "templates"]:
-            continue
+class GrfCompiler:
 
-        if path.parent.stem not in file_list.keys():
-            file_list[path.parent.stem] = list()
-        file_list[path.parent.stem].append(path)
-
-    # List found files
-    for directory in file_list.keys():
-        print("Found in directory [%s]:" % directory)
-        print([str(file.stem + file.suffix) for file in file_list[directory]])
-
-    return file_list
-
-
-def write_file(filename: str, nml_file: str):
-    from os import makedirs
-    # Generate the filepath and check if it exists
-    filepath = Path("build/" + filename + ".nml")
-    build_dir = Path("build/")
-    if not build_dir.exists():
-        makedirs("build")
-
-    if filepath.exists():
-        print("'%s.nml' already exists.  Overwriting" % filename)
-
-    # Write the internal nml to the file
-    with open(filepath, "w") as file_writer:
-        for line in nml_file:
-            file_writer.write(line)
-
-    print("Written all files to '%s.nml' file\n" % filename)
-    return 0
-
-
-def compile_grf(has_lang_dir, grf_name, lang_dir):
-    # Check if we have the nml package
-    found_nml = util.find_spec("nml")
-    if found_nml is not None:
-        # Import nml's main module
-        import nml.main
-        parameters = []
-        if has_lang_dir:
-            # If we have a lang directory, add it to the parameters
-            parameters = ["--lang", str(lang_dir), "build/" + grf_name + ".nml"]
-        else:
-            # If not, just the nml name
-            parameters = ["build/" + grf_name + ".nml"]
+    @staticmethod
+    def compile(nml_file: Path, grf_file: Path, lang_directory: Path):
         try:
+            # Check if we have the nml package
+            import nml.main
+            # setup parameters for nml
+            parameters = [str(nml_file), "--grf", str(grf_file)]
+            if lang_directory.exists():
+                # If we have a lang directory, add it to the parameters
+                parameters += ["--lang", str(lang_directory)]
             # Try to compile the nml file
-            print(parameters)
+            print("nml parameters: %s" % parameters)
             nml.main.main(parameters)
+        except ImportError:
+            # nml isn't installed
+            print("nml is not installed. You can get it using 'pip install nml'")
+            return False
         except SystemExit:
             # nml uses sys.exit(), so catch this to stop the program exiting
-            print("nml tried to exit but was stopped")
-        print("Finished compiling grf file\n")
-        return 1
-    else:
-        # nml isn't installed
-        print("nml is not installed.  You can get it using 'pip install nml'")
-        return -2
+            print("Finished compiling grf file: %s\n" % grf_file)
+        return True
 
 
-def run_game(grf_name):
-    from sys import platform
+class Game:
 
-    print("Detecting platform")
+    @staticmethod
+    def detect_platform_settings(platform_settings_file: Path):
+        print("Detecting platform settings")
+        platform_settings = {}
 
-    # Change default paths depending on whether we use Linux or Windows (sorry OSX)
-    if platform.startswith("linux"):
-        newgrf_dir = Path.home().joinpath(".openttd", "newgrf")
-        executable_path = "/usr/bin/openttd"
-        kill_cmd = ["killall", "openttd"]
-        print("Detected as Linux")
-    elif platform.startswith("win32"):
-        newgrf_dir = Path.home().joinpath("Documents", "OpenTTD", "newgrf")
-        executable_path = "C:/Program Files/OpenTTD/openttd.exe"
-        kill_cmd = ["taskkill.exe", "/IM", "openttd.exe"]
-        print("Detected as Windows")
-    else:
-        print("Detected as Other.  Cannot run game.")
-        return -3
-
-    print("Attempting to read config")
-    json_read_ok = False
-    # Check that the config file exists
-    if Path("build/build.json").exists():
-        from json import load, decoder
-        with open("build/build.json") as json_data:
-            # Try to read the config file
-            try:
-                data = load(json_data)
-            # Errors if the file in invalid
-            except decoder.JSONDecodeError:
-                print("The config file is invalid")
-                json_read_ok = False
-            else:
-                # Read successfully
-                # Try to read the keys from the json file
+        if platform_settings_file.exists():
+            print("Found existing platform settings file %s" % platform_settings_file)
+            with platform_settings_file.open("r") as file:
                 try:
-                    newgrf_dir = data["newgrf_dir"]
-                    executable_path = data["executable"]
-                # Errors if not all keys are found
-                except KeyError:
-                    print("The config json file is invalid")
-                    json_read_ok = False
-                # Read successfully, set read_ok to true
-                else:
-                    json_read_ok = True
-                    print("Read config successfully")
+                    platform_settings = json.loads(file.read())
+                except json.decoder.JSONDecodeError:
+                    print("Settings in file was invalid json. Ignoring.")
 
-    # If reading the json didn't work
-    if not json_read_ok:
-        from json import dump
-        from os import access, X_OK
-
-        print("No config, require user input")
-
-        # Prompt the user for the "newgrf" directory until we get something like it
-        while not Path(newgrf_dir).exists():
-            newgrf_dir = input("Enter the newgrf directory: ")
-            if len(newgrf_dir) > 6:
-                newgrf_dir = "~/.openttd/newgrf"
-                continue
-            if newgrf_dir[-6:] != "newgrf":
-                newgrf_dir = "~/.openttd/newgrf"
-
-        # Prompt the user for the executable path until we get an executable
-        while not Path(executable_path).exists():
-            executable_path = input("Enter the OpenTTD executable path: ")
-            if not (access(executable_path, X_OK)):
-                executable_path = "/usr/bin/openttd"
-
-        # Dump the two paths to a json file for next time
-        with open("build/build.json", "w") as json_data:
-            data = {
-                "newgrf_dir": str(newgrf_dir),
-                "executable": str(executable_path)
+        elif sys.platform.startswith("linux"):
+            platform_settings = {
+                "newgrf_directory": Path.home().joinpath(".openttd", "newgrf"),
+                "executable_path": "/usr/bin/openttd",
+                "executable_params": ["-t", "1920", "-g"],
+                "kill_cmd": ["killall", "openttd"],
             }
-            dump(data, json_data)
 
-    from shutil import copy
-    from subprocess import Popen
-    from os import devnull
+        elif sys.platform.startswith("win32"):
+            platform_settings = {
+                "newgrf_directory": str(Path.home().joinpath("Documents", "OpenTTD", "newgrf")),
+                "executable_path": "C:/Program Files/OpenTTD/openttd.exe",
+                "executable_params": ["-t", "1920", "-g"],
+                "kill_cmd": ["taskkill.exe", "/IM", "openttd.exe"],
+            }
 
-    # Kill existing processes
-    print("Killing existing processes: %s" % kill_cmd)
-    try:
-        kill_process = Popen(kill_cmd)
-        kill_process.wait()
-    except:
-        print("Something went wrong when trying to kill processes")
+        platform_settings["platform"] = sys.platform
+        print("Detected platform settings: %s" % platform_settings)
 
-    # Copy grf
-    print("Copying grf")
-    copy("build/" + grf_name + ".grf", Path(newgrf_dir))
+        for setting in ("newgrf_directory", "executable_path"):
+            path = Path(platform_settings.get(setting, "/dev/non-existent-path"))
+            while not path.exists():
+                platform_settings[setting] = input("Setting %s: %s is not valid, enter valid path: " % (setting, path))
+                path = Path(platform_settings.get(setting))
 
-    # Run the game in it's root directory
-    print("Running game: %s" % executable_path)
-    # Redirect stdout and stderr
-    null = open(devnull, "w")
-    subprocess = Popen(
-        [executable_path, "-t", "1920", "-g"],
-        cwd=Path(executable_path).parent,
-        stdout=null,
-        stderr=null,
-    )
-    subprocess.wait()
-    return 2
+        for setting in ["executable_params", "kill_cmd"]:
+            while not platform_settings.get(setting):
+                platform_settings[setting] = input("Enter %s: " % setting).split(" ")
+
+        print("File %s - Saving platform settings: %s" % (platform_settings_file, platform_settings))
+        with platform_settings_file.open("w") as file:
+            file.write(json.dumps(platform_settings, indent=4))
+
+        return platform_settings
+
+    @classmethod
+    def run(cls, grf_file: Path):
+        platform_settings = cls.detect_platform_settings(grf_file.parent.joinpath("platform_settings.json"))
+
+        # Kill existing processes
+        print("Killing existing processes using kill_cmd: %s" % platform_settings["kill_cmd"])
+        try:
+            kill_process = Popen(platform_settings["kill_cmd"])
+            kill_process.wait()
+        except Exception as e:
+            print("Something went wrong when trying to kill processes: %s" % e)
+
+        # Copy grf
+        print("Copying %s to %s" % (grf_file, platform_settings["newgrf_directory"]))
+        copy(grf_file, Path(platform_settings["newgrf_directory"]))
+
+        # Run the game in it's root directory
+        print("Running game: %s" % platform_settings["executable_path"])
+        # Redirect stdout and stderr
+        with open(os.devnull, "w") as null:
+            subprocess = Popen(
+                [platform_settings["executable_path"], *platform_settings["executable_params"]],
+                cwd=Path(platform_settings["executable_path"]).parent,
+                stdout=null,
+                stderr=null,
+            )
+            subprocess.wait()
+        return 2
 
 
-def main(grf_name, src_dir, lang_dir, gfx_dir, b_compile_grf, b_run_game):
-    src_directory = Path("src")
-    lang_directory = Path("lang")
-    gfx_directory = Path("gfx")
+def parse_args():
+    # Parse arguments
+    parser = ArgumentParser(description="Compile pnml files into one nml/grf file")
+    parser.add_argument("name")
+    parser.add_argument("--src", default="src", help="Source files directory")
+    parser.add_argument("--lang", default="lang", help="Language files directory")
+    parser.add_argument("--builddir", default="build", help="Build files directory")
+    parser.add_argument("--compile", action="store_true", help="Compile the nml file with nml lib")
+    parser.add_argument("--run", action="store_true", help="Run the game after compilation")
+    return parser.parse_args()
 
-    nml_file = ""
-    has_lang_dir = False
 
-    # Check if the project is set up properly and we have a lang directory
-    (has_lang_dir,
-     error_code) = check_project_structure(src_directory, gfx_directory,
-                                           lang_directory)
-    if error_code != 0:
-        return -1
+def main():
+    args = parse_args()
+    src_directory = Path(args.src)
+    lang_directory = Path(args.lang)
+    build_directory = Path(args.builddir)
 
-    # Add the special files to the internal nml file
-    nml_file = copy_file(src_directory.joinpath("grf.pnml"), nml_file)
-    nml_file = copy_file(src_directory.joinpath("railtypes.pnml"), nml_file)
-    nml_file = copy_file(src_directory.joinpath("templates.pnml"), nml_file)
+    # Check if the project is set up properly
+    if not check_project_structure(src_directory, lang_directory):
+        return 1
 
-    # Get a list of all the pnml files in src
-    file_list = find_pnml_files(src_directory)
-    print("Finished finding pnml files\n")
-    pnml_files = list()
-    # Read all the files in folders that begin with "_" into the internal nml
-    for directory in file_list:
-        if directory.startswith("_"):
-            for file in file_list[directory]:
-                print("Reading '%s'" % (file.stem + file.suffix))
-                nml_file = copy_file(file, nml_file)
-        else:
-            pnml_files += file_list[directory]
+    # Build directory and compiled files
+    if not build_directory.exists():
+        build_directory.mkdir(parents=True)
+    nml_file = build_directory.joinpath("%s.nml" % args.name)
+    grf_file = build_directory.joinpath("%s.grf" % args.name)
 
-    # Read the regular files
-    for file in sorted(pnml_files):
-        print("Reading '%s'" % (file.stem + file.suffix))
-        nml_file = copy_file(file, nml_file)
+    # Compile all pnml files into one nml
+    pnm_compiler = PnmlCompiler(src_directory, build_directory)
+    pnm_compiler.compile(nml_file)
 
-    print("Copied all files to internal buffer\n")
-
-    # Try to write the internal nml to a file
-    if write_file(grf_name, nml_file) != 0:
-        print("The nml file failed to compile")
-        return -1
-
-    # If we're compiling or running the game
-    if b_compile_grf or b_run_game:
+    # If we're compiling grf or running the game
+    if args.compile or args.run:
         # Try to compile the GRF
-        error = compile_grf(has_lang_dir, grf_name, lang_dir)
-        if error == -2:
-            return -2
-        elif not b_run_game:
+        if not GrfCompiler.compile(nml_file, grf_file, lang_directory):
             return 1
-
-    # Optionally run the game
-    if b_run_game:
-        return run_game(grf_name)
+        # Optionally run the game
+        if args.run:
+            return Game.run(grf_file)
 
     return 0
 
 
 if __name__ == "__main__":
-    import sys
-
-    # Parser arguments
-    parser = ArgumentParser(description="Compile pnml files into one nml file")
-    parser.add_argument("grf_name")
-    parser.add_argument("--src", default="src", help="Source files directory")
-    parser.add_argument("--lang", default="lang", help="Language files directory")
-    parser.add_argument("--gfx", default="gfx", help="Graphics files directory")
-    parser.add_argument("--compile", action="store_true", help="Compile the nml file with nmlc")
-    parser.add_argument("--run", action="store_true", help="Run the game after compilation")
-    args = parser.parse_args()
-
-    # Reports any errors in the nml file compilation process
-    error_code = main(args.grf_name, args.src, args.lang, args.gfx, args.compile, args.run)
-
-    if error_code == -1:
-        print("The nml file failed to compile properly.  Please consult the log")
-        sys.exit(1)
-    elif error_code == -2:
-        print("The nml file compiled correctly, but nml failed to compile it")
-        sys.exit(1)
-    elif error_code == -3:
-        print("The grf file compiled successfully but the game failed to start")
-        sys.exit(1)
-    elif error_code == 1:
-        print("The grf file was compiled successfully")
-    elif error_code == 2:
-        print("The grf file was compiled successfully and the game was started and ended")
-    else:
-        print("The nml file was compiled successfully (this is the not grf)")
+    sys.exit(main())
