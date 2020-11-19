@@ -7,6 +7,8 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
+      - name: Python Version
+        run: python3 --version
       - name: setuptools
         run: pip3 install setuptools pip
       - name: Dependencies
