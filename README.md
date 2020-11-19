@@ -12,7 +12,7 @@ Drawn by DanMacK and others, coded by Audigex, and based on the MUTS (Modern UK 
 ### Installation
 Grab the latest release from the in-game content downloader.
 
-Alternatively get it from the releases page and copy it into your `OpenTTD/newGRF` folder.
+Alternatively get it from the built artifacts and copy it into your `OpenTTD/newGRF` folder.
 
 ### Building from Source
 Building from the source should be mostly automated using the `build.py` script, but it has a few requirements:
@@ -38,11 +38,13 @@ This will also perform the --compile function, and will not start the game if an
 #### Developers
 
 - Audigex
+- Bazek
 
 #### Artists
 
 - DanMacK (Original art)
 - Audigex (Modifications for release)
+- Bazek
 
 ### Contributing
 Fork the project, make your changes, submit a pull request. 
