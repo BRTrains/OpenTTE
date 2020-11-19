@@ -16,7 +16,7 @@ Alternatively get it from the built artifacts and copy it into your `OpenTTD/new
 
 ### Building from Source
 Building from the source should be mostly automated using the `build.py` script, but it has a few requirements:
-  - Python3.8 (may work on earlier versions but untested)
+  - Python3.* (Tested on Python3.6, Python3.7, Python3.8, Python3.9)
   - `nml` Python package (available through `pip`)
   
 To build the grf completely, just run the following command in your terminal:
