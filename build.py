@@ -68,7 +68,8 @@ class PnmlCompiler:
 
     def compile(self, nml_file: Path):
         print("Compiling nml file %s" % nml_file)
-        nml_file.unlink(missing_ok=True)
+        if nml_file.exists():
+            nml_file.unlink()  # In Python 3.6 first param is missing
 
         # Compile the special files first
         for special_file in self.SPECIAL_FILES:
