@@ -18,4 +18,5 @@ jobs:
       - uses: actions/upload-artifact@v2
         with:
           name: OpenTTE
-          path: build/OpenTTE.{nml,grf}
+          path: build/OpenTTE.*
+          if-no-files-found: error
