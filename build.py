@@ -68,7 +68,7 @@ class PnmlCompiler:
 
     def compile(self, nml_file: Path):
         print("Compiling nml file %s" % nml_file)
-        nml_file.unlink(True)
+        nml_file.unlink(missing_ok=True)
 
         # Compile the special files first
         for special_file in self.SPECIAL_FILES:
