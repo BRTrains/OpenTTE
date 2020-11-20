@@ -1,4 +1,5 @@
 # OpenTTE - The Thomas The Tank Engine set for OpenTTD
+![Thomas and Friends](banner.png)
 
 OpenTTE is a train set for OpenTTD, including vehicles from the Thomas The Tank Engine universe
 
