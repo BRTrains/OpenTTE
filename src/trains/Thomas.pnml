@@ -56,8 +56,7 @@ item (FEAT_TRAINS, item_Thomas, 10011) {
         can_attach_wagon:                   CB_RESULT_ATTACH_ALLOW;
         cargo_capacity:                     return 0;
         cargo_subtype_text:                 return(string(STR_Thomas_Desc));
-        articulated_part:                   spriteset_Thomas;
-        default:                            sw_Thomas;
+        default:                            spriteset_Thomas;
         purchase:                           spriteset_Thomas_Purchase;
         colour_mapping:                     return PALETTE_CC_FIRST;
         create_effect:                      steam_create_visual_effect;
