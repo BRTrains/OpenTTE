@@ -6,18 +6,17 @@ spriteset(spriteset_Thomas, "gfx/Thomas_Percy_AnnieClarabel.png") {
     tmpl_thomas(0, 13)
 }
 
-switch(FEAT_TRAINS,SELF, sw_Thomas,cargo_subtype){
-    0:    spriteset_Thomas;
+
+switch (FEAT_TRAINS, SELF, sw_duplicity_available, param_duplicity) {
+    1: 0;
 }
 
-switch (FEAT_TRAINS, SELF, switch_articulated_Thomas, extra_callback_info1) {
-    return CB_RESULT_NO_MORE_ARTICULATED_PARTS; //stop adding vehicle parts
+switch (FEAT_TRAINS, SELF, sw_thomas_available, count_veh_id(10011)) {
+    0: VEHICLE_NEVER_EXPIRES;
+    sw_duplicity_available;
+
 }
 
-switch(FEAT_TRAINS,SELF,sw_Thomas_cargo_subtype_text,cargo_subtype){
-    0: return string(STR_Thomas_Name);
-       return CB_RESULT_NO_TEXT;
-}
 
 item (FEAT_TRAINS, item_Thomas, 10011) {
     property {
@@ -56,8 +55,8 @@ item (FEAT_TRAINS, item_Thomas, 10011) {
         additional_text:                    return(string(str_purchase_type_steam,string(str_Thomas_Desc),string(str_Thomas_usage)));
         can_attach_wagon:                   CB_RESULT_ATTACH_ALLOW;
         cargo_capacity:                     return 0;
-        cargo_subtype_text:                 sw_Thomas_cargo_subtype_text;
-        articulated_part:                   switch_articulated_Thomas;
+        cargo_subtype_text:                 return(string(STR_Thomas_Desc));
+        articulated_part:                   spriteset_Thomas;
         default:                            sw_Thomas;
         purchase:                           spriteset_Thomas_Purchase;
         colour_mapping:                     return PALETTE_CC_FIRST;

@@ -1,25 +1,29 @@
 ﻿﻿##grflangid 0x01
 
 # GRF name and description
-STR_GRF_NAME					:OpenTTE - A Thomas The Tank Engine Set
-STR_GRF_DESC					:A Thomas The Tank Engine trainset for OpenTTD.{}{}{WHITE}{COPYRIGHT}2020 {LTBLUE}Audigex{WHITE}{}{WHITE}License: {LTBLUE}GPL v2
+STR_GRF_NAME                    :OpenTTE - A Thomas The Tank Engine Set
+STR_GRF_DESC                    :A Thomas The Tank Engine trainset for OpenTTD.{}{}{WHITE}{COPYRIGHT}2020 {LTBLUE}Audigex{WHITE}{}{WHITE}License: {LTBLUE}GPL v2
 
 # Parameters
-STR_PARAM_NAME_SOUNDS           :Use sounds
-STR_PARAM_DESC_SOUNDS			:Enable or Disable Running Sounds for OpenTTE
-STR_PARAM_SOUNDS_OFF			:Disabled
-STR_PARAM_SOUNDS_ON				:Enabled
+STR_PARAM_DUPLICITY_NAME        :Allow duplicity
+STR_PARAM_DUPLICITY_DESC        :Allow buying the same engine more than once. You can have more Thomases or more Gordons, etc...
+STR_PARAM_DUPLICITY_OFF         :Disabled
+STR_PARAM_DUPLICITY_ON          :Enabled
+STR_PARAM_SOUNDS_NAME           :Use sounds
+STR_PARAM_SOUNDS_DESC           :Enable or Disable Running Sounds for OpenTTE
+STR_PARAM_SOUNDS_OFF            :Disabled
+STR_PARAM_SOUNDS_ON             :Enabled
 
 # Messages
-STR_CANNOT_ATTACH				:Cannot attach a different class of train
+STR_CANNOT_ATTACH               :Cannot attach a different class of train
 
 # Vehicle types
-str_purchase_type_diesel		:{RED}Diesel locomotive
-str_purchase_type_steam			:{GREEN}Steam Locomotive
-str_purchase_type_dmu			:{RED}Diesel Multiple Unit
-str_purchase_type_demu			:{RED}Diesel{BLACK}-{BLUE}Electric {PURPLE}Multiple Unit
-str_purchase_type_emu			:{BLUE}Electric Multiple Unit
-str_purchase_type_electric		:{BLUE}Electric Locomotive
+str_purchase_type_diesel        :{RED}Diesel locomotive
+str_purchase_type_steam         :{GREEN}Steam Locomotive
+str_purchase_type_dmu           :{RED}Diesel Multiple Unit
+str_purchase_type_demu          :{RED}Diesel{BLACK}-{BLUE}Electric {PURPLE}Multiple Unit
+str_purchase_type_emu           :{BLUE}Electric Multiple Unit
+str_purchase_type_electric      :{BLUE}Electric Locomotive
 
 # Vehicle names etc
 STR_Thomas_Name                 :Thomas The Tank Engine (#1)
