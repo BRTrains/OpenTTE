@@ -6,9 +6,7 @@ OpenTTE is a train set for OpenTTD, including vehicles from the Thomas The Tank 
 Drawn by DanMacK and others, coded by Audigex and Bazek, and based on the MUTS (Modern UK Train Set) build scripts and some code stolen (but not really) from BRTrains
 
 ### Train List
-
-
-
+![Thomas and Friends](vehicles.png)
 
 ### Installation
 Grab the latest release from the in-game content downloader.
