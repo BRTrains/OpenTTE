@@ -18,7 +18,7 @@ jobs:
           name: OpenTTE
           path: build/OpenTTE.*
           if-no-files-found: error
-      - name: Release
+      - name: Release Create
         uses: actions/create-release@v1
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
@@ -26,3 +26,11 @@ jobs:
           tag_name: ${{ github.ref }}
           release_name: PreRelease ${{ github.ref }}
           prerelease: true
+      - name: Release Upload
+        uses: actions/upload-release-asset@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          upload_url: ${{ steps.release_create.outputs.upload_url }}
+          asset_path: build/OpenTTE.grf
+          asset_name: OpenTTEdevelopment
