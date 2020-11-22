@@ -7,7 +7,7 @@ template tmpl_purchase_dual_head(x, y, w) {
     //xpos, ypos,   width,  height, xoffset, yoffset,   Flags
     [x,     y,      1,      1,      0,       0,         NOWHITE]
     [x,     y,      1,      1,      0,       0,         NOWHITE]
-    [x+w,   y,      68-x-w, 12,     -11,     -6,        NOWHITE]
+    [x+w,   y,      68-w,   12,     -11,     -6,        NOWHITE]
     [x,     y,      1,      1,      0,       0,         NOWHITE]
     [x,     y,      1,      1,      0,       0,         NOWHITE]
     [x,     y,      1,      1,      0,       0,         NOWHITE]
