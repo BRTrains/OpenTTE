@@ -11,7 +11,7 @@ Drawn by DanMacK and others, coded by Audigex and Bazek, and based on the MUTS (
 ### Installation
 Grab the latest release from the in-game content downloader.
 
-Alternatively get it from the built artifacts and copy it into your `OpenTTD/newGRF` folder.
+Alternatively get it from the ![Releases](releases/) page and copy it into your `OpenTTD/newGRF` folder.
 
 ### Building from Source
 Building from the source should be mostly automated using the `build.py` script, but it has a few requirements:
