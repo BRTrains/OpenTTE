@@ -1,6 +1,5 @@
 spriteset(spriteset_PipEmma_Purchase, "gfx/Pip_Emma.png") {
-    //xpos, ypos,   width,  height, xoffset, yoffset,   Flags
-    [0,     0,      28,     12,     0,     -6,        NOWHITE]
+    tmpl_purchase_dual_head(0, 0, 28)
 }
 
 spriteset(spriteset_PipEmma_Coach_Purchase, "gfx/Pip_Emma.png") {

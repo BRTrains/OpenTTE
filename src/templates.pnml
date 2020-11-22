@@ -1,7 +1,20 @@
-template tmpl_purchase(x,y){
+template tmpl_purchase(x, y) {
     //xpos, ypos,   width,  height, xoffset, yoffset,   Flags
     [x,     y,      68,     12,     -25,     -6,        NOWHITE]
 }
+
+template tmpl_purchase_dual_head(x, y, w) {
+    //xpos, ypos,   width,  height, xoffset, yoffset,   Flags
+    [x,     y,      1,      1,      0,       0,         NOWHITE]
+    [x,     y,      1,      1,      0,       0,         NOWHITE]
+    [x+w,   y,      68-x-w, 12,     -11,     -6,        NOWHITE]
+    [x,     y,      1,      1,      0,       0,         NOWHITE]
+    [x,     y,      1,      1,      0,       0,         NOWHITE]
+    [x,     y,      1,      1,      0,       0,         NOWHITE]
+    [x,     y,      w,      12,     -11,     -6,        NOWHITE]
+    [x,     y,      1,      1,      0,       0,         NOWHITE]
+}
+
 
 // Used for Gordon and Henry
 template tmpl_loco_29(x,y) {
