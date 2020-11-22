@@ -25,4 +25,4 @@ jobs:
         with:
           tag_name: ${{ github.ref }}
           release_name: PreRelease ${{ github.ref }}
-        prerelease: true
+          prerelease: true
