@@ -36,3 +36,4 @@ jobs:
           upload_url: ${{ steps.release_create.outputs.upload_url }}
           asset_path: build/OpenTTE.grf
           asset_name: OpenTTEdevelopment
+          asset_content_type: application/grf
