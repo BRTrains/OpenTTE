@@ -6,17 +6,23 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
-      - name: Python Version
-        run: python3 --version
-      - name: setuptools
-        run: pip3 install setuptools pip
+      - name: Checkout
+        uses: actions/checkout@v2
       - name: Dependencies
-        run: pip3 install nml
+        run: python3 --version && pip3 install setuptools pip && pip3 install nml
       - name: Build
         run: python3 build.py --compile OpenTTE
-      - uses: actions/upload-artifact@v2
+      - name: Artifact
+        uses: actions/upload-artifact@v2
         with:
           name: OpenTTE
           path: build/OpenTTE.*
           if-no-files-found: error
+      - name: Release
+        uses: actions/create-release@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          tag_name: ${{ github.ref }}
+          release_name: PreRelease ${{ github.ref }}
+        prerelease: true
