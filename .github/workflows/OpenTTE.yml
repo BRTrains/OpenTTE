@@ -24,8 +24,8 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
-          tag_name: ${{ github.action }}
-          release_name: PreRelease ${{ github.ref }}
+          tag_name: ${{ github.run_id }}
+          release_name: PreRelease ${{ github.run_id }}
           prerelease: true
       - name: Release Upload
         id: release_upload
