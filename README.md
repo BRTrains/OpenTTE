@@ -46,7 +46,8 @@ This will also perform the --compile function, and will not start the game if an
 - Bazek
 
 ### Contributing
-Fork the project, make your changes, submit a pull request. 
+- Fork the project, make your changes, submit a pull request
+- Or just send me sprite sheet with your new vehicles and I will add it (use ![Template](gfx/Template/) Directory)
 
 ### License
 This project is licensed under the GPLv2 license
