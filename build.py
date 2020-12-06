@@ -42,7 +42,7 @@ class PnmlCompiler:
         ]
 
     @staticmethod
-    def copy_file(source_file: Path, destination_file: Path):
+    def _copy_file(source_file: Path, destination_file: Path):
         # If the source_file doesn't exist, exit
         if not source_file.exists():
             print("The file %s does not exist" % source_file)
@@ -56,7 +56,7 @@ class PnmlCompiler:
                 dst_file.write(src_file.read())
             dst_file.write("\n\n")
 
-    def find_pnml_files(self):
+    def _find_pnml_files(self):
         file_dict = {}
         # Iterate through all files in src_directory recursively, finding any that end in .pnml
         for path in self.src_directory.rglob("*.pnml"):
@@ -73,24 +73,24 @@ class PnmlCompiler:
 
         # Compile the special files first
         for special_file in self.SPECIAL_FILES:
-            self.copy_file(special_file, nml_file)
+            self._copy_file(special_file, nml_file)
 
         # Get a list of all the pnml files in src
-        file_list = self.find_pnml_files()
+        file_list = self._find_pnml_files()
         pnml_files = []
         # Read all the files in folders that begin with "_" into the final nml
         for directory in file_list:
             if directory.startswith("_"):
                 for file in file_list[directory]:
                     file = Path(file)
-                    self.copy_file(file, nml_file)
+                    self._copy_file(file, nml_file)
             else:
                 pnml_files += file_list[directory]
 
         # Read the regular files
         for file in sorted(pnml_files):
             file = Path(file)
-            self.copy_file(file, nml_file)
+            self._copy_file(file, nml_file)
 
         print("Compiled all *.pnml files into %s\n" % nml_file)
 
@@ -123,7 +123,7 @@ class GrfCompiler:
 class Game:
 
     @staticmethod
-    def detect_platform_settings(platform_settings_file: Path):
+    def _detect_platform_settings(platform_settings_file: Path):
         print("Detecting platform settings")
         platform_settings = {}
 
@@ -170,11 +170,8 @@ class Game:
 
         return platform_settings
 
-    @classmethod
-    def run(cls, grf_file: Path):
-        platform_settings = cls.detect_platform_settings(grf_file.parent.joinpath("platform_settings.json"))
-
-        # Kill existing processes
+    @staticmethod
+    def _kill(platform_settings: dict):
         print("Killing existing processes using kill_cmd: %s" % platform_settings["kill_cmd"])
         try:
             kill_process = Popen(platform_settings["kill_cmd"])
@@ -182,10 +179,13 @@ class Game:
         except Exception as e:
             print("Something went wrong when trying to kill processes: %s" % e)
 
-        # Copy grf
+    @staticmethod
+    def _copy_grf(grf_file: Path, platform_settings: dict):
         print("Copying %s to %s" % (grf_file, platform_settings["newgrf_directory"]))
         copy(grf_file, Path(platform_settings["newgrf_directory"]))
 
+    @staticmethod
+    def _run(platform_settings: dict):
         # Run the game in it's root directory
         print("Running game: %s" % platform_settings["executable_path"])
         # Redirect stdout and stderr
@@ -197,7 +197,17 @@ class Game:
                 stderr=null,
             )
             subprocess.wait()
-        return 2
+        return 0
+
+    @classmethod
+    def run(cls, grf_file: Path):
+        platform_settings = cls._detect_platform_settings(grf_file.parent.joinpath("platform_settings.json"))
+        cls._kill(platform_settings)
+        cls._copy_grf(grf_file, platform_settings)
+        return cls._run(platform_settings)
+
+
+# Main section
 
 
 def parse_args():

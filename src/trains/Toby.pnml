@@ -35,7 +35,7 @@ item (FEAT_TRAINS, item_Toby, 10071) {
         refittable_cargo_classes:           0;
         cargo_allow_refit:                  [PASS, TOUR];
         loading_speed:                      3;
-        cost_factor:                        27;
+        cost_factor:                        20;
         running_cost_factor:                27;
         sprite_id:                          SPRITE_ID_NEW_TRAIN;
         speed:                              42 mph;
@@ -74,7 +74,7 @@ item (FEAT_TRAINS, item_Henrietta, 10072) {
         refittable_cargo_classes:           0;
         cargo_allow_refit:                  [PASS, TOUR];
         loading_speed:                      8;
-        cost_factor:                        80;
+        cost_factor:                        70;
         running_cost_factor:                60;
         sprite_id:                          SPRITE_ID_NEW_TRAIN;
         speed:                              46 mph;
@@ -109,7 +109,7 @@ item (FEAT_TRAINS, item_Elsie, 10073) {
         refittable_cargo_classes:           0;
         cargo_allow_refit:                  [PASS, TOUR];
         loading_speed:                      8;
-        cost_factor:                        40;
+        cost_factor:                        30;
         running_cost_factor:                30;
         sprite_id:                          SPRITE_ID_NEW_TRAIN;
         speed:                              40 mph;

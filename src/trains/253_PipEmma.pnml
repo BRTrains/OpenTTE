@@ -42,7 +42,7 @@ item (FEAT_TRAINS, item_PipEmma, 2531) {
         refittable_cargo_classes:           CC_PASSENGERS;
         cargo_allow_refit:                  [PASS, TOUR];
         loading_speed:                      10;
-        cost_factor:                        200;
+        cost_factor:                        180;
         running_cost_factor:                200;
         sprite_id:                          SPRITE_ID_NEW_TRAIN;
         speed:                              100 mph;
@@ -87,7 +87,7 @@ item (FEAT_TRAINS, item_PipEmma_Coach, 2532) {
         vehicle_life:                   20;
         cargo_allow_refit:              [PASS, TOUR];
         loading_speed:                  10;
-        cost_factor:                    160;
+        cost_factor:                    140;
         running_cost_factor:            120;
         speed:                          100 mph;
         power:                          0;

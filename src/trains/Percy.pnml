@@ -30,7 +30,7 @@ item (FEAT_TRAINS, item_Percy, 10061) {
 		refittable_cargo_classes:		0;
 		cargo_allow_refit:				[GOOD];
 		loading_speed:					3;
-		cost_factor:					50;
+		cost_factor:					40;
 		running_cost_factor:			50;
 		sprite_id:						SPRITE_ID_NEW_TRAIN;
 		speed:							60 mph;

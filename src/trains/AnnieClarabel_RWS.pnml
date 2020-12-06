@@ -25,7 +25,7 @@ item (FEAT_TRAINS, item_Annie, 10012) {
         vehicle_life:                   20;
         cargo_allow_refit:              [PASS, TOUR];
         loading_speed:                  10;
-        cost_factor:                    128;
+        cost_factor:                    100;
         running_cost_factor:            96;
         speed:                          60 mph;
         power:                          0;
@@ -58,7 +58,7 @@ item (FEAT_TRAINS, item_Clarabel, 10013) {
         vehicle_life:                   20;
         cargo_allow_refit:              [PASS, TOUR];
         loading_speed:                  10;
-        cost_factor:                    128;
+        cost_factor:                    100;
         running_cost_factor:            96;
         speed:                          60 mph;
         power:                          0;
