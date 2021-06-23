@@ -1,16 +1,20 @@
-tl;dr:
-- 10000-11000: Rolling stock/wagons etc, detailed below
-- 60000-65999: Steam locomotives of the main characters
-- 0-9999: British Rail-derived diesel/electric/MU classes etc
+01 Express Coach
+02 Annie and Clarabel
 
-Rolling stock/wagons in the 100xx range
+101 Thomas (#1)
 
-1. Express Coach
-2. Annie & Clarabel
+201 Edward (#2)
+202 Edward tender
 
-"Main character" steam Locomotives use the 60xx1-60xx9 range, where x is the train's number. Eg James (#5) uses ID's 51 and 52 for the engine and tender
-Thomas uses 11. Toby uses 71-73 for Toby/Henrietta/Elsie.
+301 Henry (#3)
+302 Henry Tender
 
-Diesel/Electric units use their equivalent British Rail class with up to 10 vehicles per unit. Thus the range 0-9999 is reserved for TOPS designations (although it's unlikely that anything below 81 would ever be used)
+401 Gordon (#4)
+402 Gordon Tender
 
-Additional ranges may be reserved for things like the Skarloey railway etc
+501 James (#5)
+502 James Tender
+
+601 Percy (#6)
+
+2531 Pip and Emma (Class 253)

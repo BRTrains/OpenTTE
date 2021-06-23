@@ -21,7 +21,7 @@ switch(FEAT_TRAINS,SELF,sw_AnnieClarabel_cargo_subtype_text,cargo_subtype){
        return CB_RESULT_NO_TEXT;
 }
 
-item (FEAT_TRAINS, item_AnnieClarabel, 10002) {
+item (FEAT_TRAINS, item_AnnieClarabel, 02) {
 	property {
 		name: 							string(STR_AnnieClarabel_Name);
 		climates_available: 			ALL_CLIMATES;

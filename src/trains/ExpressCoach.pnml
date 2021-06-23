@@ -27,7 +27,7 @@ switch(FEAT_TRAINS,SELF,sw_ExpressCoach_cargo_subtype_text,cargo_subtype){
        return CB_RESULT_NO_TEXT;
 }
 
-item (FEAT_TRAINS, item_ExpressCoach, 10001) {
+item (FEAT_TRAINS, item_ExpressCoach, 01) {
 	property {
 		name: 							string(STR_ExpressCoach_Name);
 		climates_available: 			ALL_CLIMATES;
