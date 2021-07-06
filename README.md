@@ -1,22 +1,21 @@
 # OpenTTE - The Thomas The Tank Engine set for OpenTTD
+![Thomas and Friends](banner.png)
 
 OpenTTE is a train set for OpenTTD, including vehicles from the Thomas The Tank Engine universe
 
-Drawn by DanMacK and others, coded by Audigex, and based on the MUTS (Modern UK Train Set) build scripts and some code stolen (but not really) from BRTrains
+Drawn by DanMacK and others, coded by Audigex and Bazek, and based on the MUTS (Modern UK Train Set) build scripts and some code stolen (but not really) from BRTrains
 
 ### Train List
-
-
-
+![Thomas and Friends](vehicles.png)
 
 ### Installation
 Grab the latest release from the in-game content downloader.
 
-Alternatively get it from the releases page and copy it into your `OpenTTD/newGRF` folder.
+Alternatively get it from the ![Releases](../../releases/) page and copy it into your `OpenTTD/newGRF` folder.
 
 ### Building from Source
 Building from the source should be mostly automated using the `build.py` script, but it has a few requirements:
-  - Python3.8 (may work on earlier versions but untested)
+  - Python3.* (Tested on Python3.6, Python3.7, Python3.8, Python3.9)
   - `nml` Python package (available through `pip`)
   
 To build the grf completely, just run the following command in your terminal:
@@ -38,14 +37,17 @@ This will also perform the --compile function, and will not start the game if an
 #### Developers
 
 - Audigex
+- Bazek
 
 #### Artists
 
 - DanMacK (Original art)
 - Audigex (Modifications for release)
+- Bazek
 
 ### Contributing
-Fork the project, make your changes, submit a pull request. 
+- Fork the project, make your changes, submit a pull request
+- Or just send me sprite sheet with your new vehicles and I will add it (use ![Template](gfx/Template/) Directory)
 
 ### License
 This project is licensed under the GPLv2 license

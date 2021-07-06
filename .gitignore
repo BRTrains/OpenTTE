@@ -1,18 +1,12 @@
 # Build files
-build/
-build.json
-conf.ps1
-*.grf
-*.tar
+build/**
 
 # NML cache
-.nmlcache/
-*.cache
-*.cacheindex
+.nmlcache/**
 
 # Test files
 *test*
 
-# No clue
-master-gfx/
-list_ids.py
+# Development and IDE
+.vscode/**
+.idea/**

@@ -1,12 +1,18 @@
 sort(FEAT_TRAINS, [
- item_Thomas,
- item_Edward,
- item_Henry,
- item_Gordon,
- item_James,
- item_Percy,
- item_Toby,
- item_PipEmma, // IC125/Class 253
- item_AnnieClarabel,
- item_ExpressCoach
+     item_Thomas,
+     item_Edward,
+     item_Henry,
+     item_Gordon,
+     item_James,
+     item_Percy,
+     item_Toby,
+     item_PipEmma, // IC125/Class 253
+     item_Annie,
+     item_Clarabel,
+     item_ExpressCoach_RWS,
+     item_ExpressCoach_Second,
+     item_ExpressCoach_First,
+     item_PipEmma_Coach,
+     item_Henrietta,
+     item_Elsie
  ]);

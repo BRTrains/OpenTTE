@@ -1,25 +1,20 @@
-spriteset(spriteset_AnnieClarabel_Purchase, "gfx/Thomas_Percy_AnnieClarabel.png") {
-	tmpl_purchase(178, 0)
+spriteset(spriteset_Annie_Purchase, "gfx/Thomas_Percy_AnnieClarabel.png") {
+    tmpl_purchase(178, 0)
 }
 
+spriteset(spriteset_Clarabel_Purchase, "gfx/Thomas_Percy_AnnieClarabel.png") {
+    tmpl_purchase(267, 0)
+}
+
+
 spriteset(spriteset_Annie, "gfx/Thomas_Percy_AnnieClarabel.png") {
-	tmpl_coach_33(0, 66)
+    tmpl_coach_33(0, 66)
 }
 
 spriteset(spriteset_Clarabel, "gfx/Thomas_Percy_AnnieClarabel.png") {
-	tmpl_coach_33(0, 91)
+    tmpl_coach_33(0, 91)
 }
 
-switch(FEAT_TRAINS,SELF, sw_AnnieClarabel,cargo_subtype){
-    0:	spriteset_Annie;
-    1:	spriteset_Clarabel;    
-}
-	
-switch(FEAT_TRAINS,SELF,sw_AnnieClarabel_cargo_subtype_text,cargo_subtype){
-    0: return string(STR_Livery_Annie);
-    1: return string(STR_Livery_Clarabel);    
-       return CB_RESULT_NO_TEXT;
-}
 
 item (FEAT_TRAINS, item_Annie, 10012) {
     property {
