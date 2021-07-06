@@ -132,7 +132,6 @@ item (FEAT_TRAINS, item_Elsie, 10073) {
         can_attach_wagon:                   CB_RESULT_ATTACH_ALLOW;
         default:                            spriteset_Elsie;
         purchase:                           spriteset_Elsie_Purchase;
-        colour_mapping:                     return PALETTE_CC_FIRST;
-    
+        colour_mapping:                     return PALETTE_CC_FIRST;    
 	}
 }

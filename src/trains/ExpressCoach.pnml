@@ -23,6 +23,7 @@ spriteset(spriteset_ExpressCoach_First, "gfx/Express_Coaches.png") {
     tmpl_coach_33(0, 63)
 }
 
+
 item (FEAT_TRAINS, item_ExpressCoach_RWS, 10001) {
     property {
         name:                           string(STR_ExpressCoach_RWS_Name);
