@@ -23,6 +23,7 @@ spriteset(spriteset_Elsie, "gfx/Toby.png") {
     tmpl_brake_van(0, 45)
 }
 
+
 item (FEAT_TRAINS, item_Toby, 10071) {
     property {
         name:                               string(STR_Toby_Name);
@@ -132,6 +133,6 @@ item (FEAT_TRAINS, item_Elsie, 10073) {
         can_attach_wagon:                   CB_RESULT_ATTACH_ALLOW;
         default:                            spriteset_Elsie;
         purchase:                           spriteset_Elsie_Purchase;
-        colour_mapping:                     return PALETTE_CC_FIRST;    
-	}
+        colour_mapping:                     return PALETTE_CC_FIRST;
+    }
 }
