@@ -45,7 +45,7 @@ item (FEAT_TRAINS, item_PipEmma, 2531) {
         cost_factor:                        180;
         running_cost_factor:                200;
         sprite_id:                          SPRITE_ID_NEW_TRAIN;
-        speed:                              100 mph;
+        speed:                              125 mph;
         misc_flags:                         TRAIN_FLAG_MU;
         refit_cost:                         0;
         track_type:                         RAIL;
@@ -89,7 +89,7 @@ item (FEAT_TRAINS, item_PipEmma_Coach, 2532) {
         loading_speed:                  10;
         cost_factor:                    140;
         running_cost_factor:            120;
-        speed:                          100 mph;
+        speed:                          125 mph;
         power:                          0;
         sprite_id:                      SPRITE_ID_NEW_TRAIN;
         refit_cost:                     0;
