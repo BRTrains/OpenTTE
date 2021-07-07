@@ -1,9 +1,13 @@
-# OpenTTE - The Thomas The Tank Engine set for OpenTTD
+# Sodor Railways Expansion - The Thomas The Tank Engine set for OpenTTD
 ![Thomas and Friends](banner.png)
 
-OpenTTE is a train set for OpenTTD, including vehicles from the Thomas The Tank Engine universe
+Sodor Railways Expansion is a train set for OpenTTD, including vehicles from the Thomas The Tank Engine universe
 
-Drawn by DanMacK and others, coded by Audigex and Bazek, and based on the MUTS (Modern UK Train Set) build scripts and some code stolen (but not really) from BRTrains
+Drawn by DanMacK and others, coded by Audigex and Bazek, and based on the MUTS (Modern UK Train Set) build scripts and some code stolen (but not really, thanks GPLv2) from BRTrains
+
+### Discussion forum post
+Discuss the set, or contribute graphics (using the templates at ![Template](gfx/Template/)) in our TT-Forums thread
+https://www.tt-forums.net/viewtopic.php?f=26&t=54189&start=40
 
 ### Train List
 ![Thomas and Friends](vehicles.png)
@@ -47,7 +51,8 @@ This will also perform the --compile function, and will not start the game if an
 
 ### Contributing
 - Fork the project, make your changes, submit a pull request
-- Or just send me sprite sheet with your new vehicles and I will add it (use ![Template](gfx/Template/) Directory)
+- Or just send us a sprite sheet with your new vehicles and we will add it (use ![Template](gfx/Template/) Directory)
+- https://www.tt-forums.net/viewtopic.php?f=26&t=54189&start=40
 
 ### License
 This project is licensed under the GPLv2 license
