@@ -80,7 +80,7 @@ item (FEAT_TRAINS, item_Gordon_Tender, 402) {
 		name: 							string(STR_Gordon_Name);
 		climates_available: 			NO_CLIMATE;
 		refittable_cargo_classes:		0;
-		cargo_allow_refit:				[GOOD];
+		cargo_allow_refit:				[GOOD, PASS];
 		loading_speed:					3;
 		cost_factor:					0;
 		running_cost_factor:			0;
