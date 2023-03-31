@@ -47,7 +47,8 @@ This will also perform the --compile function, and will not start the game if an
 
 - DanMacK (Original art)
 - Audigex (Modifications for release)
-- Bazek
+- Bazek (Modifications)
+- Fabian (Variants for the more show-accurate parameter)
 
 ### Contributing
 - Fork the project, make your changes, submit a pull request
