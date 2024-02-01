@@ -2,7 +2,7 @@
 
 # GRF name and description
 STR_GRF_NAME                    :OpenTTE - A Thomas The Tank Engine Set
-STR_GRF_DESC                    :A Thomas The Tank Engine trainset for OpenTTD.{}{}{WHITE}{COPYRIGHT}2020 {LTBLUE}Audigex{WHITE}{}{WHITE}License: {LTBLUE}GPL v2
+STR_GRF_DESC                    :A Thomas The Tank Engine trainset for OpenTTD.{}{}{WHITE}{COPYRIGHT}2020 {LTBLUE}Audigex, DanMacK{WHITE} and other contributors (see readme/github){}{WHITE}License: {LTBLUE}GPL v2
 
 # Parameters
 STR_PARAM_DUPLICITY_NAME        :Allow duplicity
