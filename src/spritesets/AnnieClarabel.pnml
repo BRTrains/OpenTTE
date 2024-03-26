@@ -6,7 +6,6 @@ spriteset(spriteset_Clarabel_Purchase, "gfx/Thomas_Percy_AnnieClarabel.png") {
     tmpl_purchase(267, 0)
 }
 
-
 spriteset(spriteset_Annie, "gfx/Thomas_Percy_AnnieClarabel.png") {
     tmpl_coach_33(0, 66)
 }
