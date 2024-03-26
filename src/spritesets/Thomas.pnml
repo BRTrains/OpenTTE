@@ -1,0 +1,18 @@
+spriteset(spriteset_Thomas_Purchase, "gfx/Thomas_Percy_AnnieClarabel.png") {
+    tmpl_purchase(0, 0)
+}
+
+spriteset(spriteset_Thomas, "gfx/Thomas_Percy_AnnieClarabel.png") {
+    tmpl_thomas(0, 13)
+}
+
+
+switch (FEAT_TRAINS, SELF, sw_duplicity_available, param_duplicity) {
+    1: 0;
+}
+
+switch (FEAT_TRAINS, SELF, sw_thomas_available, count_veh_id(10011)) {
+    0: VEHICLE_NEVER_EXPIRES;
+    sw_duplicity_available;
+
+}

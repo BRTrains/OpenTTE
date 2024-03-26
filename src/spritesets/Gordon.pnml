@@ -1,0 +1,29 @@
+spriteset(spriteset_Gordon_Purchase, "gfx/Gordon.png") {
+	tmpl_purchase(0, 0)
+}
+
+spriteset(spriteset_Gordon, "gfx/Gordon.png") {
+	tmpl_loco_29(0, 13)
+}
+spriteset(spriteset_Gordon_Tender, "gfx/Gordon.png") {
+	tmpl_tender_16(0, 36)
+}
+
+switch(FEAT_TRAINS,SELF, sw_Gordon_Tender,cargo_subtype){
+    0:	spriteset_Gordon_Tender;
+}
+
+switch(FEAT_TRAINS,SELF, sw_Gordon,cargo_subtype){
+    0:	spriteset_Gordon;
+
+}
+
+switch (FEAT_TRAINS, SELF, switch_articulated_Gordon, extra_callback_info1) {
+	1: return item_Gordon_Tender;
+    return CB_RESULT_NO_MORE_ARTICULATED_PARTS; //stop adding vehicle parts
+}
+
+switch(FEAT_TRAINS,SELF,sw_Gordon_cargo_subtype_text,cargo_subtype){
+    0: return string(STR_Gordon_Name);
+       return CB_RESULT_NO_TEXT;
+}

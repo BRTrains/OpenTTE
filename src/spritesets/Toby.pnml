@@ -1,0 +1,24 @@
+spriteset(spriteset_Toby_Purchase, "gfx/Toby.png") {
+    tmpl_purchase(0, 0)
+}
+
+spriteset(spriteset_Henrietta_Purchase, "gfx/Toby.png") {
+    tmpl_purchase(89, 0)
+}
+
+spriteset(spriteset_Elsie_Purchase, "gfx/Toby.png") {
+    tmpl_purchase(178, 0)
+}
+
+
+spriteset(spriteset_Toby, "gfx/Toby.png") {
+    tmpl_toby(0, 13)
+}
+
+spriteset(spriteset_Henrietta, "gfx/Toby.png") {
+    tmpl_coach_21(0, 28)
+}
+
+spriteset(spriteset_Elsie, "gfx/Toby.png") {
+    tmpl_brake_van(0, 45)
+}

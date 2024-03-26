@@ -1,0 +1,29 @@
+spriteset(spriteset_Edward_Purchase, "gfx/Edward_James.png") {
+	tmpl_purchase(0, 0)
+}
+
+spriteset(spriteset_Edward, "gfx/Edward_James.png") {
+	tmpl_Edward(0, 13)
+}
+spriteset(spriteset_Edward_Tender, "gfx/Edward_James.png") {
+	tmpl_tender_16(0, 33)
+}
+
+switch(FEAT_TRAINS,SELF, sw_Edward_Tender,cargo_subtype){
+    0:	spriteset_Edward_Tender;
+}
+
+switch(FEAT_TRAINS,SELF, sw_Edward,cargo_subtype){
+    0:	spriteset_Edward;
+
+}
+
+switch (FEAT_TRAINS, SELF, switch_articulated_Edward, extra_callback_info1) {
+	1: return item_Edward_Tender;
+    return CB_RESULT_NO_MORE_ARTICULATED_PARTS; //stop adding vehicle parts
+}
+
+switch(FEAT_TRAINS,SELF,sw_Edward_cargo_subtype_text,cargo_subtype){
+    0: return string(STR_Edward_Name);
+       return CB_RESULT_NO_TEXT;
+}
