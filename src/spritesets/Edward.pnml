@@ -1,11 +1,11 @@
-spriteset(spriteset_Edward_Purchase, "gfx/Edward_James.png") {
+spriteset(spriteset_Edward_Purchase, "gfx/Trains/Edward_James.png") {
 	tmpl_purchase(0, 0)
 }
 
-spriteset(spriteset_Edward, "gfx/Edward_James.png") {
+spriteset(spriteset_Edward, "gfx/Trains/Edward_James.png") {
 	tmpl_Edward(0, 13)
 }
-spriteset(spriteset_Edward_Tender, "gfx/Edward_James.png") {
+spriteset(spriteset_Edward_Tender, "gfx/Trains/Edward_James.png") {
 	tmpl_tender_16(0, 33)
 }
 

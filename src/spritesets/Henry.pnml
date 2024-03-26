@@ -1,11 +1,11 @@
-spriteset(spriteset_Henry_Purchase, "gfx/Henry.png") {
+spriteset(spriteset_Henry_Purchase, "gfx/Trains/Henry.png") {
 	tmpl_purchase(0, 0)
 }
 
-spriteset(spriteset_Henry, "gfx/Henry.png") {
+spriteset(spriteset_Henry, "gfx/Trains/Henry.png") {
 	tmpl_loco_29(0, 13)
 }
-spriteset(spriteset_Henry_Tender, "gfx/Henry.png") {
+spriteset(spriteset_Henry_Tender, "gfx/Trains/Henry.png") {
 	tmpl_tender_16(0, 36)
 }
 

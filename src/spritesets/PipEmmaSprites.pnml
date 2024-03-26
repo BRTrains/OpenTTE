@@ -1,13 +1,13 @@
-spriteset(spriteset_PipEmma_Purchase, "gfx/Pip_Emma.png") {
+spriteset(spriteset_PipEmma_Purchase, "gfx/Trains/Pip_Emma.png") {
     tmpl_purchase_dual_head(0, 0, 28)
 }
 
-spriteset(spriteset_PipEmma_Coach_Purchase, "gfx/Pip_Emma.png") {
+spriteset(spriteset_PipEmma_Coach_Purchase, "gfx/Trains/Pip_Emma.png") {
     tmpl_purchase(89, 0)
 }
 
 
-spriteset(spriteset_PipEmma, "gfx/Pip_Emma.png") {
+spriteset(spriteset_PipEmma, "gfx/Trains/Pip_Emma.png") {
     //leftx, topy, width, height, offsetx, offsety
     [0,     13,     8,      20,     -3,      -4]  // N
     [9,     13,     18,     15,     -16,     -5]  // NE
@@ -19,7 +19,7 @@ spriteset(spriteset_PipEmma, "gfx/Pip_Emma.png") {
     [133,   13,     18,     15,     -2,      -6]  // NW
 }
 
-spriteset(spriteset_PipEmma_Coach, "gfx/Pip_Emma.png") {
+spriteset(spriteset_PipEmma_Coach, "gfx/Trains/Pip_Emma.png") {
     tmpl_coach_33(0, 34)
 }
 

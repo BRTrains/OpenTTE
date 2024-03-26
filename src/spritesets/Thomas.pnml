@@ -1,8 +1,8 @@
-spriteset(spriteset_Thomas_Purchase, "gfx/Thomas_Percy_AnnieClarabel.png") {
+spriteset(spriteset_Thomas_Purchase, "gfx/Trains/Thomas_Percy_AnnieClarabel.png") {
     tmpl_purchase(0, 0)
 }
 
-spriteset(spriteset_Thomas, "gfx/Thomas_Percy_AnnieClarabel.png") {
+spriteset(spriteset_Thomas, "gfx/Trains/Thomas_Percy_AnnieClarabel.png") {
     tmpl_thomas(0, 13)
 }
 
