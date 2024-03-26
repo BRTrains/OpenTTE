@@ -8,5 +8,9 @@ build/**
 *test*
 
 # Development and IDE
+.gitignore
 .vscode/**
 .idea/**
+build.bat
+buildandcopy.bat
+copy.bat
