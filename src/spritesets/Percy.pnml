@@ -1,0 +1,20 @@
+spriteset(spriteset_Percy_Purchase, "gfx/Trains/Thomas_Percy_AnnieClarabel.png") {
+	tmpl_purchase(89, 0)
+}
+
+spriteset(spriteset_Percy, "gfx/Trains/Thomas_Percy_AnnieClarabel.png") {
+	tmpl_percy(0, 31)
+}
+
+switch(FEAT_TRAINS,SELF, sw_Percy,cargo_subtype){
+    0:	spriteset_Percy;
+}
+
+switch (FEAT_TRAINS, SELF, switch_articulated_Percy, extra_callback_info1) {
+    return CB_RESULT_NO_MORE_ARTICULATED_PARTS; //stop adding vehicle parts
+}
+
+switch(FEAT_TRAINS,SELF,sw_Percy_cargo_subtype_text,cargo_subtype){
+    0: return string(STR_Percy_Name);
+       return CB_RESULT_NO_TEXT;
+}

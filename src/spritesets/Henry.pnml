@@ -1,0 +1,29 @@
+spriteset(spriteset_Henry_Purchase, "gfx/Trains/Henry.png") {
+	tmpl_purchase(0, 0)
+}
+
+spriteset(spriteset_Henry, "gfx/Trains/Henry.png") {
+	tmpl_loco_29(0, 13)
+}
+spriteset(spriteset_Henry_Tender, "gfx/Trains/Henry.png") {
+	tmpl_tender_16(0, 36)
+}
+
+switch(FEAT_TRAINS,SELF, sw_Henry_Tender,cargo_subtype){
+    0:	spriteset_Henry_Tender;
+}
+
+switch(FEAT_TRAINS,SELF, sw_Henry,cargo_subtype){
+    0:	spriteset_Henry;
+
+}
+
+switch (FEAT_TRAINS, SELF, switch_articulated_Henry, extra_callback_info1) {
+	1: return item_Henry_Tender;
+    return CB_RESULT_NO_MORE_ARTICULATED_PARTS; //stop adding vehicle parts
+}
+
+switch(FEAT_TRAINS,SELF,sw_Henry_cargo_subtype_text,cargo_subtype){
+    0: return string(STR_Henry_Name);
+       return CB_RESULT_NO_TEXT;
+}

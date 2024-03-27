@@ -1,0 +1,15 @@
+spriteset(spriteset_Annie_Purchase, "gfx/Trains/Thomas_Percy_AnnieClarabel.png") {
+    tmpl_purchase(178, 0)
+}
+
+spriteset(spriteset_Clarabel_Purchase, "gfx/Trains/Thomas_Percy_AnnieClarabel.png") {
+    tmpl_purchase(267, 0)
+}
+
+spriteset(spriteset_Annie, "gfx/Trains/Thomas_Percy_AnnieClarabel.png") {
+    tmpl_coach_33(0, 66)
+}
+
+spriteset(spriteset_Clarabel, "gfx/Trains/Thomas_Percy_AnnieClarabel.png") {
+    tmpl_coach_33(0, 91)
+}

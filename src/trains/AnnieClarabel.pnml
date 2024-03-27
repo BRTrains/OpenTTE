@@ -1,21 +1,3 @@
-spriteset(spriteset_Annie_Purchase, "gfx/Thomas_Percy_AnnieClarabel.png") {
-    tmpl_purchase(178, 0)
-}
-
-spriteset(spriteset_Clarabel_Purchase, "gfx/Thomas_Percy_AnnieClarabel.png") {
-    tmpl_purchase(267, 0)
-}
-
-
-spriteset(spriteset_Annie, "gfx/Thomas_Percy_AnnieClarabel.png") {
-    tmpl_coach_33(0, 66)
-}
-
-spriteset(spriteset_Clarabel, "gfx/Thomas_Percy_AnnieClarabel.png") {
-    tmpl_coach_33(0, 91)
-}
-
-
 item (FEAT_TRAINS, item_Annie, 10012) {
     property {
         name:                           string(STR_Annie_Name);
