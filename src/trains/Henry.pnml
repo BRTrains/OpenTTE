@@ -2,7 +2,7 @@ item (FEAT_TRAINS, item_Henry, 301) {
 	property {
 		name: 							string(STR_Henry_Name);
 		climates_available: 			ALL_CLIMATES;
-		introduction_date:				date(1920,1,1);
+		introduction_date:				date(1919,1,1);
 		model_life:						VEHICLE_NEVER_EXPIRES;
 		vehicle_life:					18;
 		reliability_decay:				7;
@@ -17,7 +17,7 @@ item (FEAT_TRAINS, item_Henry, 301) {
 		refit_cost:						0;
 		track_type:						RAIL;
 		ai_special_flag:				AI_FLAG_CARGO;
-		power:							1400 hp;
+		power:							1100 hp;
 		running_cost_base:				RUNNING_COST_STEAM;
 		dual_headed:					0;
 		default_cargo_type:				GOOD;
