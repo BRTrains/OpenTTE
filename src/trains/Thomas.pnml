@@ -2,7 +2,7 @@ item (FEAT_TRAINS, item_Thomas, 10011) {
     property {
         name:                               string(STR_Thomas_Name);
         climates_available:                 ALL_CLIMATES;
-        introduction_date:                  date(1920,1,1);
+        introduction_date:                  date(1915,9,1);
         model_life:                         VEHICLE_NEVER_EXPIRES;
         vehicle_life:                       18;
         reliability_decay:                  7;
@@ -22,7 +22,7 @@ item (FEAT_TRAINS, item_Thomas, 10011) {
         dual_headed:                        0;
         default_cargo_type:                 GOOD;
         cargo_capacity:                     1;
-        weight:                             55 ton;
+        weight:                             52 ton;
         engine_class:                       ENGINE_CLASS_STEAM;
         tractive_effort_coefficient:        0.3;
         air_drag_coefficient:               0.1;
