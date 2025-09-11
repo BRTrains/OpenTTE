@@ -22,7 +22,7 @@ item (FEAT_TRAINS, item_Henry, 301) {
 		dual_headed:					0;
 		default_cargo_type:				GOOD;
 		cargo_capacity:					1;
-		weight:							90 ton;
+		weight:							67 ton;
 		engine_class:					ENGINE_CLASS_STEAM;
 		tractive_effort_coefficient:	0.5;
 		air_drag_coefficient:			0.1;
@@ -62,7 +62,7 @@ item (FEAT_TRAINS, item_Henry_Tender, 302) {
 		dual_headed:					0;
 		default_cargo_type:				GOOD;
 		cargo_capacity:					1;
-		weight:							0;
+		weight:							42;
 		tractive_effort_coefficient:	0;
 		air_drag_coefficient:			0;
 		length:							3;
