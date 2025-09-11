@@ -2,7 +2,7 @@ item (FEAT_TRAINS, item_Gordon, 401) {
 	property {
 		name: 							string(STR_Gordon_Name);
 		climates_available: 			ALL_CLIMATES;
-		introduction_date:				date(1920,1,1);
+		introduction_date:				date(1922,1,1);
 		model_life:						VEHICLE_NEVER_EXPIRES;
 		vehicle_life:					18;
 		reliability_decay:				7;
@@ -22,7 +22,7 @@ item (FEAT_TRAINS, item_Gordon, 401) {
 		dual_headed:					0;
 		default_cargo_type:				GOOD;
 		cargo_capacity:					1;
-		weight:							100 ton;
+		weight:							92 ton;
 		engine_class:					ENGINE_CLASS_STEAM;
 		tractive_effort_coefficient:	0.3;
 		air_drag_coefficient:			0.1;
@@ -62,7 +62,7 @@ item (FEAT_TRAINS, item_Gordon_Tender, 402) {
 		dual_headed:					0;
 		default_cargo_type:				GOOD;
 		cargo_capacity:					1;
-		weight:							0;
+		weight:							41;
 		tractive_effort_coefficient:	0;
 		air_drag_coefficient:			0;
 		length:							3;
