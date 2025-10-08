@@ -18,7 +18,7 @@ item (FEAT_TRAINS, item_diesel, 8168) {
         track_type:                         RAIL;
         ai_special_flag:                    AI_FLAG_CARGO;
         power:                              700 hp;
-        running_cost_base:                  RUNNING_COST_STEAM;
+        running_cost_base:                  RUNNING_COST_DIESEL;
         dual_headed:                        0;
         default_cargo_type:                 GOOD;
         cargo_capacity:                     1;
