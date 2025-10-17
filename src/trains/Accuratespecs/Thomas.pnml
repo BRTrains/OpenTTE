@@ -24,7 +24,7 @@ item (FEAT_TRAINS, item_Thomas, 10011) {
         cargo_capacity:                     1;
         weight:                             52 ton;
         engine_class:                       ENGINE_CLASS_STEAM;
-        tractive_effort_coefficient:        0.3;
+        tractive_effort_coefficient:        0.182;
         air_drag_coefficient:               0.1;
         length:                             5;
         effect_spawn_model_and_powered:     EFFECT_SPAWN_MODEL_STEAM;
