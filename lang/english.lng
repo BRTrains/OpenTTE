@@ -72,6 +72,10 @@ STR_Oliver_Name                 :Oliver The Great Western Engine (#11)
 STR_Oliver_Desc                 :A refugee from dieselization, Oliver escaped to sodor with toad and Isabelle, despite this, he still has his moments 
 STR_Oliver_Usage                :Branch Lines (Passenger)
 
+STR_Diesel_Name                  :devious diesel (D)
+STR_Diesel_Desc                  :A Diesel
+STR_Diesel_Usage                 :Short Distance freight
+
 STR_Daisy_Name                  :Daisy The Diesel Railcar (D1)
 STR_Daisy_Desc                  :A Diesel Railcar (BR 101 Protype)
 STR_Daisy_Usage                 :Short Distance Passenger
