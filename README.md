@@ -40,7 +40,7 @@ This will also perform the --compile function, and will not start the game if an
 
 #### Developers
 
-- Audigex
+- Audigex (lead
 - Bazek
 
 #### Artists
@@ -48,7 +48,7 @@ This will also perform the --compile function, and will not start the game if an
 - DanMacK (Original art)
 - Audigex (Modifications for release)
 - Bazek (Modifications)
-- SalvaCottontail (additional art)
+- SalvaCottontail (BRtrains scale art)
 
 ### Contributing
 - Fork the project, make your changes, submit a pull request
