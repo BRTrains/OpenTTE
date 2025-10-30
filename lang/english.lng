@@ -115,7 +115,7 @@ STR_ExpressCoach_Liveries       :Liveries: RWS, First Class, Second Class
 
 STR_PipEmma_Coach_Name          :Express Inter City 125 (Coach)
 STR_PipEmma_Coach_Desc          :Inter City 125 Coach for Pip and Emma
-STR_PipEmma_Coach_Usage         :Coupled to Pip and Emma, for branch line services
+STR_PipEmma_Coach_Usage         :Coupled to Pip and Emma, for high speed express services
 
 STR_Bertie_Name                 :Bertie The Bus
 STR_Bertie_Desc                 :A single deck bus (AEC Regal)
