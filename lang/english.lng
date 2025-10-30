@@ -80,7 +80,7 @@ STR_Daisy_Name                  :Daisy The Diesel Railcar (D1)
 STR_Daisy_Desc                  :A Diesel Railcar (BR 101 Protype)
 STR_Daisy_Usage                 :Short Distance Passenger
 
-STR_BoCo_Name                   :The Big Friendly Diesel (D2)
+STR_BoCo_Name                   :BoCo the Metropolitan engine (D2)
 STR_BoCo_Desc                   :A Diesel-Electric Locomotive (BR 28)
 STR_BoCo_Usage                  :Local Passenger or Freight
 
@@ -89,21 +89,21 @@ STR_Bear_Desc                   :A Diesel-Hydrualic Locomotive (BR 35)
 STR_Bear_Usage                  :Local Distance Freight or Passenger
 
 STR_PipEmma_Name                :Pip and Emma
-STR_PipEmma_Desc                :Diesel-Electric High Speed Locomotives (BR43/IC125)
+STR_PipEmma_Desc                :Pip and Emma are 2 high speed diesels who take the express after gordon retired, they regularly run to the mainland and back.
 STR_PipEmma_Usage               :High Speed Passenger Express
 
 STR_Annie_Name                  :Annie (Coach)
 STR_Clarabel_Name               :Clarabel (Coach)
-STR_AnnieClarabel_Desc          :Passenger Coache
+STR_AnnieClarabel_Desc          :thomas's faithful coaches, they take passengers along his branchline
 STR_AnnieClarabel_Usage         :Local/Branchline passenger services
 STR_AnnieClarabel_Liveries      :Liveries: Annie, Clarabel
 
 STR_Henrietta_Name              :Henrietta (Coach)
-STR_Henrietta_Desc              :A passenger coach, and Toby's good friend
+STR_Henrietta_Desc              :Toby's very faithful Coach, she takes passengers along the tramway section of thomas's branchline
 STR_Henrietta_Usage             :Coupled to Toby, for branch line services
 
 STR_Elsie_Name                  :Elsie (Brake Van)
-STR_Elsie_Desc                  :A brake van, and Toby's friend
+STR_Elsie_Desc                  :A luggage van, and Toby's friend
 STR_Elsie_Usage                 :Coupled to Toby and Henrietta
 
 STR_ExpressCoach_RWS_Name       :Express RWS (Coach)
